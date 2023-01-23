@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('category')->group(function (){
+    Route::get('/create', [CategoryController::class, 'create'])->name('create-category');
+    Route::post('/store',[CategoryController::class,'store'])->name('store-category');
 });
