@@ -1,15 +1,18 @@
 @extends('admin.layouts.master');
 
-@section('content')
+@section('title')
+    {{'Add Category'}}
+@endsection
 
+@section('content')
     <section class="section">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Add New Category</h5>
 
-                        <form class="row g-3" action="{{route('store-category')}}" method="POST">
+                        <form class="row g-3" action="{{route('store.category')}}" method="post">
                             @csrf
                             <div class="col-12">
                                 <label for="Name" class="form-label">Name</label>
