@@ -1,7 +1,7 @@
 @extends('admin.layouts.master');
 
 @section('title')
-    {{'Add Category'}}
+    {{'Add Attribute'}}
 @endsection
 
 @section('content')
@@ -10,15 +10,15 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Add New Category</h5>
+                        <h5 class="card-title">Add New Attribute</h5>
 
-                        <form class="row g-3" action="{{route('store.category')}}" method="post">
+                        <form class="row g-3" action="{{route('store.attribute')}}" method="post">
                             @csrf
                             <div class="col-12">
                                 <label for="Name" class="form-label">Name</label>
                                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="inputName" >
                                 @error('name')
-                                  <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
                                 @enderror
@@ -40,7 +40,7 @@
 
                     </div>
                 </div>
-        </div>
+            </div>
     </section>
 
 @endsection

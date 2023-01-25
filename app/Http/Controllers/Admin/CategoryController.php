@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Validator;
 
 
 class CategoryController extends Controller
@@ -17,10 +18,14 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name'        => 'required',
+        $validate = Validator::make($request->all(), [
+            'name' => 'required',
+        ],[
+            'name.required' => 'Name is must.',
         ]);
-
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
         $category = new Category();
         $category->name        = $request->name;
         $category->description = $request->description;
@@ -32,13 +37,13 @@ class CategoryController extends Controller
     public function index(){
 
         $categories = Category::all();
-        return view('admin.category.index',['categories'=>$categories]);
+        return view('admin.category.index',['categories' => $categories]);
     }
 
     public function edit($id)
     {
         $catergory = Category::find($id);
-        return view('admin.category.edit',['category'=>$catergory]);
+        return view('admin.category.edit',['category' => $catergory]);
     }
 
     public function update(Request $request, $id)
@@ -52,7 +57,7 @@ class CategoryController extends Controller
         $category->name        = $request->name;
         $category->description = $request->description;
         $category->update();
-        return redirect()->back()->with('success','Category Updated successfully');
+        return redirect()->back()->with('success', 'Category Updated successfully');
     }
 
     public function delete(Request $request)

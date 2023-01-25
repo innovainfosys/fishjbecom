@@ -1,7 +1,7 @@
 @extends('admin.layouts.master');
 
 @section('title')
-    {{'Add Category'}}
+    {{'Edit Attribute'}}
 @endsection
 
 @section('content')
@@ -10,15 +10,15 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Add New Category</h5>
+                        <h5 class="card-title">Add New Attribute</h5>
 
-                        <form class="row g-3" action="{{route('store.category')}}" method="post">
+                        <form class="row g-3" action="{{route('update.attribute',$attribute->id)}}" method="post">
                             @csrf
                             <div class="col-12">
                                 <label for="Name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="inputName" >
+                                <input type="text" name="name" value="{{$attribute->name}}" class="form-control @error('name') is-invalid @enderror" id="inputName" >
                                 @error('name')
-                                  <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
                                 @enderror
@@ -26,7 +26,7 @@
 
                             <div class="col-12">
                                 <label for="inputAddress" class="form-label">Description</label>
-                                <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" id="inputAddress" placeholder="Write description">
+                                <input type="text"  value=" {{$attribute->description}}" name="description" class="form-control @error('description') is-invalid @enderror" id="inputAddress" placeholder="Write description">
                                 @error('description')
                                 <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -40,7 +40,7 @@
 
                     </div>
                 </div>
-        </div>
+            </div>
     </section>
 
 @endsection
