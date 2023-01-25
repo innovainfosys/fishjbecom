@@ -15,27 +15,43 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Parent Category</th>
                     <th scope="col">Description</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                @if(isset($categories))
+                    <?php $_SESSION['i'] = 0; ?>
                 @foreach($categories as $category)
+                    <?php $_SESSION['i']++ ?>
                 <tr>
-                    <th scope="row">{{$loop->iteration}}</th>
+                    <?php $dash=''; ?>
+                    <td>{{$_SESSION['i']}}</td>
                     <td>{{$category->name}}</td>
-                    <td>{{$category->description}}</td>
+
+                    <td>
+                        @if(isset($category->parent_id))
+                            {{$category->subcategory->name}}
+                        @else
+                            None
+                        @endif
+                    </td>
+                        <td>{{$category->description}}</td>
                     <td>
                         <a href="{{route('edit.category',$category->id)}}"  class="edit btn btn-info btn-sm"> <i class="ri  ri-edit-2-fill"> </i> </a>
                         <a href="javascript:void(0)"  data-id="{{$category->id}}" class="delete btn btn-danger btn-sm"> <i class="ri ri-delete-bin-6-line"> </i> </a>
                     </td>
-
                 </tr>
+                @if(count($category->subcategory))
+                    @include('admin.category.subCategoryList',['subcategories' => $category->subcategory])
+                @endif
                 @endforeach
+                    <?php unset($_SESSION['i']); ?>
+                @endif
 
                 </tbody>
             </table>
-            <!-- End Table with hoverable rows -->
 
         </div>
     </div>
