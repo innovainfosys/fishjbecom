@@ -48,13 +48,16 @@ section{
     display: flex;
     justify-content: left;
 }
-.space-between{
-    
+.full-radius{
+    border-radius: 35px;
 }
 button{
     margin: 0 5px;
     border-radius: 2px;
     padding: 10px 14px;
+}
+.bold{
+    font-weight: bold;
 }
 
 /* header secton code start from here  */
@@ -79,6 +82,13 @@ button.bangla-font.cart-btn {
 }
 .cart{
     padding-left: 6px;
+}
+i.fa-brands.fa-facebook-f.lr-padding, i.fa-brands.fa-instagram.lr-padding, i.fa-brands.fa-linkedin-in.lr-padding {
+    color: white;
+    background: #111111;
+    padding: 14px 18px;
+    font-size: 16px;
+    margin-right: 4px;
 }
 
 /* header secton code end from here  */
@@ -145,6 +155,12 @@ button#dropdownMenuButton {
 .see-more-fish a{
     color: white;
 }
+.river-fish-col .row{
+    justify-content: right;
+}
+.sea-fish-col .row{
+    justify-content: left;
+}
 
 /* fish list code end from here  */
 
@@ -182,3 +198,77 @@ button#dropdownMenuButton {
 }
 
 /* 2 category fish css code end from here */
+
+/* footer section css code start from here  */
+
+.footer-section{
+    background: #f5f5f5;
+}
+.footer-col-1-p{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.footer-icons {
+    margin-top: 14px;
+}
+.footer-col-2-wrapper ul li{
+    list-style: none;
+}
+.footer-col-2-wrapper ul li a{
+    font-size: 14px;
+    color: #000;
+    line-height: 3rem;
+}
+.footer-col-2-wrapper ul li a:hover{
+    border-bottom:1px solid #111111;
+}
+li.poppins.footer-link-heading {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.footer-col-3-wrapper ul li{
+    list-style: none;
+    font-size: 14px;
+
+}
+.footer-col-3-wrapper ul li i{
+    margin-right: 15px;
+    line-height: 3rem;
+}
+p.poppins.text-center {
+    border-top: 1px solid white;
+    padding: 20px 0;
+    background: #f5f5f5;
+}
+
+/* footer section css code end from here  */
+
+
+/* product template css code start from here  */
+
+.product-title h1, .billing-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+.product-weight a {
+    background: #ffca2c;
+    padding: 10px 16px;
+    font-size: 16px;
+    color: #111111;
+    font-weight: 700;
+}
+.price-wrapper {
+    background: #f5f5f5;
+    padding: 40px;
+    border-radius: 8px;
+}
+.p-category-tag{
+    margin-top: 16px;
+}
+a.product-var-price {
+    background: #009758;
+    color: white;
+}
+
+/* product template css code end from here  */
