@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- jquery link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -22,18 +25,23 @@
                             <h1 class="bangla-font">কাতল মাছ</h1>
                         </div>
                         <div class="product-image">
-                            <img src="../assets/images/new1.jpg" class="img-fluid" alt="">
+                            <img src="../assets/images/new1.jpg" class="img-fluid" id="product-image1" alt="">
+                            <img src="../assets/images/b2.png" class="img-fluid big-img" id="product-image2" alt="">
+                            <img src="../assets/images/b3.png" class="img-fluid  big-img" id="product-image3" alt="">
+                            <img src="../assets/images/b4.png" class="img-fluid big-img" id="product-image4" alt="">
+                            
                             
                             <div class="row mt-2">
-                                <div class="col-md-3"><img src="../assets/images/new1.jpg" class="img-fluid" alt=""></div>
-                                <div class="col-md-3"><img src="../assets/images/new1.jpg" class="img-fluid" alt=""></div>
-                                <div class="col-md-3"><img src="../assets/images/new1.jpg" class="img-fluid" alt=""></div>
-                                <div class="col-md-3"><img src="../assets/images/new1.jpg" class="img-fluid" alt=""></div>
+                                <div class="col-md-3"><img src="../assets/images/new1.jpg" onclick="galleryItem1()" class="img-fluid gallery-images" alt=""></div>
+                                <div class="col-md-3"><img src="../assets/images/b2.png" onclick="galleryItem2()" class="img-fluid gallery-images" alt=""></div>
+                                <div class="col-md-3"><img src="../assets/images/b3.png" onclick="galleryItem3()" class="img-fluid gallery-images" alt=""></div>
+                                <div class="col-md-3"><img src="../assets/images/b4.png" onclick="galleryItem4()" class="img-fluid gallery-images" alt=""></div>
                             </div>
-
                         </div>
                     </div>
                 </div>
+
+                
     
                 <div class="col-md-6">
                     <div class="product-page-right-wrapper ">
@@ -42,27 +50,191 @@
                         </div>
 
                         <div class="price-wrapper mt-5">
-                        <div class="product-prices">
-                            <p class="mb-4">লব্ধ প্যাক আকারঃ</p>
-                        </div>
                             <div class="row">
-                                <div class="col-md-4 product-weight"><a href="#">৪৫০ গ্রাম</a><p class="mt-4"><a class="product-var-price" href="#">৭৫০ টাকা</a></p></div>
-                                <div class="col-md-4 product-weight"><a href="#">১ কেজি</a><p class="mt-4"><a class="product-var-price" href="#">10৫০ টাকা</a></p></div>
-                                <div class="col-md-4 product-weight"><a href="#">২ কেজি</a><p class="mt-4"><a class="product-var-price" href="#">16৫০ টাকা</a></p></div>
-                                <div class="col-md-12">
-                                    <p class="mt-5">তুমি থাকলে, কষ্টও সহজ মনে হয়, গন্তব্য যত দূরেই হোক, কাছেই মনে হয়। তুমি থাকলে, কষ্টও সহজ মনে হয়, গন্তব্য যত দূরেই হোক, কাছেই মনে হয়। তুমি থাকলে, কষ্টও সহজ মনে হয়, গন্তব্য যত দূরেই হোক, কাছেই মনে হয়।</p>
-                                    <p class="p-category-tag"><span class="bold">ক্যাটেগরিঃ </span>সামুদ্রিক মাছ</p>
-                                    <p class="p-category-tag"><span class="bold">মূল্যঃ </span>৭৫০ টাকা</p>
-                                </div> 
+
+                                <div class="col-md-4 mb-4">
+                                    <div class="billing-col" id="billCol">
+                                        <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>৪৫০ গ্রাম</p></div>
+                                        <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>৭৫০ টাকা</p></div>
+                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN" onclick="billSelect()"><a href="">নির্বাচন করুন</a></p></div>
+                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN"><a href="">নির্বাচিত</a></p></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="billing-col" id="billCol2">
+                                        <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>১ কেজি</p></div>
+                                        <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>১০৫০ টাকা</p></div>
+                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN2" onclick="billSelect2()"><a href="">নির্বাচন করুন</a></p></div>
+                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN2"><a href="">নির্বাচিত</a></p></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="billing-col" id="billCol3">
+                                        <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>২ কেজি</p></div>
+                                        <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>১৬৫০ টাকা</p></div>
+                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN3" onclick="billSelect3()"><a href="">নির্বাচন করুন</a></p></div>
+                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN3"><a href="">নির্বাচিত</a></p></div>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
 
+                       
+
+                        <div class="wrap">
+                                <p class="mb-3 bold">পরিমাণ</p>
+                        <button type="button" id="sub" class="sub">-</button>
+                        <input class="count" type="text" id="1" value="1" min="1" max="100" />
+                        <button type="button" id="add" class="add">+</button>
+
+                        <div class="mt-4 price-input">
+                            <span class="bold">মূল্যঃ </span><input type="text" value="">
+                        </div>
+
+                        </div>
+
+                        
                     </div>
                 </div>
     
             </div>
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h1 class="text-center">Description</h1>
+                    <p class="bangla-font text-center mt-3">জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+   
+                        মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে। বিপুল মাংস, কঠিন বর্ম, প্রকাণ্ড লেজ নিয়ে জলে স্থলে পৃথুল দেহের যে অমিতাচার প্রবল হয়ে উঠেছিল তাতে ধরিত্রীকে দিলে ক্লান্ত করে। প্রমাণ হল আতিশয্যের পরাভব অনিবার্য। পরীক্ষায় এটাও স্থির হয়ে গেল যে, প্রশ্রয়ের পরিমাণ যত বেশি হয় দুর্বলতার বোঝাও তত দুর্বহ হয়ে ওঠে। নূতন পর্বে প্রকৃতি যথাসম্ভব মানুষের বরাদ্দ কম করে দিয়ে নিজে রইল নেপথ্যে।
+                        
+                        মানুষকে দেখতে হল খুব ছোটো, কিন্তু সেটা একটা কৌশল মাত্র। এবারকার জীবযাত্রার পালায় বিপুলতাকে করা হল বহুলতায় পরিণত। মহাকায় জন্তু ছিল প্রকাণ্ড একলা, মানুষ হল দূরপ্রসারিত অনেক। জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+   
+                        মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে। বিপুল মাংস, কঠিন বর্ম, প্রকাণ্ড লেজ নিয়ে জলে স্থলে পৃথুল দেহের যে অমিতাচার প্রবল হয়ে উঠেছিল তাতে ধরিত্রীকে দিলে ক্লান্ত করে। প্রমাণ হল আতিশয্যের পরাভব অনিবার্য। পরীক্ষায় এটাও স্থির হয়ে গেল যে, প্রশ্রয়ের পরিমাণ যত বেশি হয় দুর্বলতার বোঝাও তত দুর্বহ হয়ে ওঠে। নূতন পর্বে প্রকৃতি যথাসম্ভব মানুষের বরাদ্দ কম করে দিয়ে নিজে রইল নেপথ্যে।
+                        
+                        মানুষকে দেখতে হল খুব ছোটো, কিন্তু সেটা একটা কৌশল মাত্র। এবারকার জীবযাত্রার পালায় বিপুলতাকে করা হল বহুলতায় পরিণত। মহাকায় জন্তু ছিল প্রকাণ্ড একলা, মানুষ হল দূরপ্রসারিত অনেক। জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+   
+                        মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে। বিপুল মাংস, কঠিন বর্ম, প্রকাণ্ড লেজ নিয়ে জলে স্থলে পৃথুল দেহের যে অমিতাচার প্রবল হয়ে উঠেছিল তাতে ধরিত্রীকে দিলে ক্লান্ত করে। প্রমাণ হল আতিশয্যের পরাভব অনিবার্য। পরীক্ষায় এটাও স্থির হয়ে গেল যে, প্রশ্রয়ের পরিমাণ যত বেশি হয় দুর্বলতার বোঝাও তত দুর্বহ হয়ে ওঠে। নূতন পর্বে প্রকৃতি যথাসম্ভব মানুষের বরাদ্দ কম করে দিয়ে নিজে রইল নেপথ্যে।
+                        
+                        মানুষকে দেখতে হল খুব ছোটো, কিন্তু সেটা একটা কৌশল মাত্র। এবারকার জীবযাত্রার পালায় বিপুলতাকে করা হল বহুলতায় পরিণত। মহাকায় জন্তু ছিল প্রকাণ্ড একলা, মানুষ হল দূরপ্রসারিত অনেক। জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+   
+                        মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে। বিপুল মাংস, কঠিন বর্ম, প্রকাণ্ড লেজ নিয়ে জলে স্থলে পৃথুল দেহের যে অমিতাচার প্রবল হয়ে উঠেছিল তাতে ধরিত্রীকে দিলে ক্লান্ত করে। প্রমাণ হল আতিশয্যের পরাভব অনিবার্য। পরীক্ষায় এটাও স্থির হয়ে গেল যে, প্রশ্রয়ের পরিমাণ যত বেশি হয় দুর্বলতার বোঝাও তত দুর্বহ হয়ে ওঠে। নূতন পর্বে প্রকৃতি যথাসম্ভব মানুষের বরাদ্দ কম করে দিয়ে নিজে রইল নেপথ্যে।
+                        
+                        মানুষকে দেখতে হল খুব ছোটো, কিন্তু সেটা একটা কৌশল মাত্র। এবারকার জীবযাত্রার পালায় বিপুলতাকে করা হল বহুলতায় পরিণত। মহাকায় জন্তু ছিল প্রকাণ্ড একলা, মানুষ হল দূরপ্রসারিত অনেক। জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+   
+                        মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে। বিপুল মাংস, কঠিন বর্ম, প্রকাণ্ড লেজ নিয়ে জলে স্থলে পৃথুল দেহের যে অমিতাচার প্রবল হয়ে উঠেছিল তাতে ধরিত্রীকে দিলে ক্লান্ত করে। প্রমাণ হল আতিশয্যের পরাভব অনিবার্য। পরীক্ষায় এটাও স্থির হয়ে গেল যে, প্রশ্রয়ের পরিমাণ যত বেশি হয় দুর্বলতার বোঝাও তত দুর্বহ হয়ে ওঠে। নূতন পর্বে প্রকৃতি যথাসম্ভব মানুষের বরাদ্দ কম করে দিয়ে নিজে রইল নেপথ্যে।
+                        
+                        মানুষকে দেখতে হল খুব ছোটো, কিন্তু সেটা একটা কৌশল মাত্র। এবারকার জীবযাত্রার পালায় বিপুলতাকে করা হল বহুলতায় পরিণত। মহাকায় জন্তু ছিল প্রকাণ্ড একলা, মানুষ হল দূরপ্রসারিত অনেক। জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+                        
+                        মানুষ আসবার পূর্বেই জীবসৃষ্টিযজ্ঞে প্রকৃতির ভূরিব্যয়ের পালা শেষ হয়ে এসেছে। বিপুল মাংস, কঠিন বর্ম, প্রকাণ্ড লেজ নিয়ে জলে স্থলে পৃথুল দেহের যে অমিতাচার প্রবল হয়ে উঠেছিল তাতে ধরিত্রীকে দিলে ক্লান্ত করে। প্রমাণ হল আতিশয্যের পরাভব অনিবার্য। পরীক্ষায় এটাও স্থির হয়ে গেল যে, প্রশ্রয়ের পরিমাণ যত বেশি হয় দুর্বলতার বোঝাও তত দুর্বহ হয়ে ওঠে। নূতন পর্বে প্রকৃতি যথাসম্ভব মানুষের বরাদ্দ কম করে দিয়ে নিজে রইল নেপথ্যে।
+                        
+                        মানুষকে দেখতে হল খুব ছোটো, কিন্তু সেটা একটা কৌশল মাত্র। এবারকার জীবযাত্রার পালায় বিপুলতাকে করা হল বহুলতায় পরিণত। মহাকায় জন্তু ছিল প্রকাণ্ড একলা, মানুষ হল দূরপ্রসারিত অনেক। </p>
+
+                    </div>
+            </div>
+
         </div>
     </section>
+
+    <script>
+        
+        // product quantity jquery code 
+
+        $('.add').click(function () {		
+        var th = $(this).closest('.wrap').find('.count');    	
+        th.val(+th.val() + 1);
+        });
+        $('.sub').click(function () {
+        var th = $(this).closest('.wrap').find('.count');    	
+                if (th.val() > 1) th.val(+th.val() - 1);
+        });
+
+        // bill select button js code
+
+        var billSelectBTN = document.getElementById('billSelectBTN');
+        var billSelectedBTN = document.getElementById('billSelectedBTN');
+        var billCol = document.getElementById('billCol');
+
+        var billSelectBTN2 = document.getElementById('billSelectBTN2');
+        var billSelectedBTN2 = document.getElementById('billSelectedBTN2');
+        var billCol2 = document.getElementById('billCol2');
+
+        var billSelectBTN3 = document.getElementById('billSelectBTN3');
+        var billSelectedBTN3 = document.getElementById('billSelectedBTN3');
+        var billCol3 = document.getElementById('billCol3');
+
+        
+
+
+        function billSelect(){
+            billSelectBTN.style.display     = "none";
+            billSelectedBTN.style.display   = "block";
+            billCol.style.boxShadow         = "1px 0px 10px 1px #00975878";
+            billCol2.style.boxShadow        = "none";
+            billCol3.style.boxShadow        = "none";
+            billCol.style.border            = "2px solid #0097587d";
+            billSelectedBTN2.style.display  = "none";
+            billSelectBTN2.style.display    = "block";
+            billSelectedBTN3.style.display  = "none";
+            billSelectBTN3.style.display    = "block";
+        }
+        function billSelect2(){
+            billSelectBTN2.style.display    = "none";
+            billSelectedBTN2.style.display  = "block";
+            billSelectedBTN.style.display   = "none";
+            billSelectBTN.style.display     = "block";
+            billCol.style.boxShadow         = "none";
+            billCol2.style.boxShadow        = "1px 0px 10px 1px #00975878";
+            billCol3.style.boxShadow        = "none";
+            billCol2.style.border           = "2px solid #0097587d";
+            billSelectedBTN3.style.display  = "none";
+            billSelectBTN3.style.display    = "block";
+        }
+        function billSelect3(){
+            billSelectBTN3.style.display    = "none";
+            billSelectedBTN3.style.display  = "block";
+            billSelectedBTN.style.display   = "none";
+            billSelectBTN.style.display     = "block";
+            billCol.style.boxShadow         = "none";
+            billCol2.style.boxShadow        = "none";
+            billCol3.style.boxShadow        = "1px 0px 10px 1px #00975878";
+            billCol3.style.border           = "2px solid #0097587d";
+            billSelectedBTN2.style.display  = "none";
+            billSelectBTN2.style.display    = "block";
+        }
+
+
+        // gallery image js code 
+        var productImage1 = document.getElementById('product-image1');
+        var productImage2 = document.getElementById('product-image2');
+        var productImage3 = document.getElementById('product-image3');
+        var productImage4 = document.getElementById('product-image4');
+
+        function galleryItem1(){
+            productImage1.style.display ='block';
+            productImage2.style.display ='none';
+            productImage3.style.display ='none';
+            productImage4.style.display ='none';
+        }
+        function galleryItem2(){
+            productImage1.style.display ='none';
+            productImage2.style.display ='block';
+            productImage3.style.display ='none';
+            productImage4.style.display ='none';
+        }
+        function galleryItem3(){
+            productImage1.style.display ='none';
+            productImage2.style.display ='none';
+            productImage3.style.display ='block';
+            productImage4.style.display ='none';
+        }
+        function galleryItem4(){
+            productImage1.style.display ='none';
+            productImage2.style.display ='none';
+            productImage3.style.display ='none';
+            productImage4.style.display ='block';
+        }
+
+    </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
