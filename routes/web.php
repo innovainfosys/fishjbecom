@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AttributeController;
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +52,11 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
  Route::get('attribute/edit/{id}', [AttributeController::class, 'edit'])->name('edit.attribute');
  Route::post('attribute/update/{id}', [AttributeController::class, 'update'])->name('update.attribute');
  Route::delete('attribute/delete', [AttributeController::class, 'delete'])->name('delete.attribute');
+
+
+ Route::get('product/create' , [ProductController::class, 'create'])->name('create.product');
+ Route::post('product/store', [ProductController::class, 'store'])->name('store.product');
+
 
 
 });

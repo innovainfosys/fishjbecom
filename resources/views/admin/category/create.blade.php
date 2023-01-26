@@ -36,7 +36,7 @@
 
                             <div class="col-12">
                                 <label for="inputAddress" class="col-form-label">Select a Parent Category</label>
-                                <select type="text" name="parent_id" class="form-select">
+                                <select name="category_id" class="form-select">
                                     <option value="">None</option>
                                     @if($categories)
                                         @foreach($categories as $category)

@@ -39,12 +39,12 @@ class CategoryController extends Controller
 
 
         if ($request->hasFile('image')) {
-            $newsImageFile = $request->file('image');
-            $imageFileName = 'category_' . time() . '.' . $newsImageFile->getClientOriginalExtension();
+            $imageFile = $request->file('image');
+            $imageFileName = 'category_' . time() . '.' . $imageFile->getClientOriginalExtension();
             if (!file_exists('uploads/images/category')) {
                 mkdir('uploads/images/category', 0777, true);
             }
-            $newsImageFile->move('uploads/images/category', $imageFileName);
+            $imageFile->move('uploads/images/category', $imageFileName);
             $category->image = $imageFileName;
         }
 
@@ -61,23 +61,46 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $catergory = Category::find($id);
-        return view('admin.category.edit',['category' => $catergory]);
+        $category = Category::find($id);
+        $categories = Category::where('parent_id', null)->where('id', '!=', $category->id)->orderby('name', 'asc')->get();
+        return view('admin.category.edit',['category' => $category,'categories'=>$categories]);
     }
 
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name'        => 'required'
+            'name'        => 'required',
+            'parent_id'   => 'nullable|numeric'
         ]);
 
         $category = Category::find($id);
+        if($request->name != $category->name || $request->parent_id != $category->parent_id)
+        {
+            if(isset($request->parent_id))
+            {
+                //check duplicate
+                $categoryParent = Category::where('name', $request->name)->where('parent_id', $request->parent_id)->first();
+                if($categoryParent)
+                {
+                    return redirect()->back()->with('error', 'Category already exist in this parent.');
+                }
+            }
+            else
+            {
+                $categoryParent = Category::where('name', $request->name)->where('parent_id', null)->first();
+                if($categoryParent)
+                {
+                    return redirect()->back()->with('error', 'Category already exist with this name.');
+                }
+            }
+        }
 
         $category->name        = $request->name;
+        $category->parent_id   = $request->parent_id;
         $category->description = $request->description;
 
         if ($request->hasFile('image')) {
-            $destination = 'uploads/images/category' . $category->image;
+            $destination = 'uploads/images/category/' .$category->image;
             if (file_exists($destination)) {
                 @unlink($destination);
             }
@@ -98,10 +121,21 @@ class CategoryController extends Controller
 
         $id = $request->id;
         $category = Category::find($id);
-        $imagePath = public_path("/uploads/images/category".$category->image);
+        $imagePath = public_path("/uploads/images/category/".$category->image);
         if (file_exists($imagePath))
         {
             @unlink($imagePath);
+        }
+
+        if (count( $category->subcategory))
+        {
+            $subcategories = $category->subcategory;
+            foreach ($subcategories as $item)
+            {
+                $item = Category::find($item->id);
+                $item->parent_id = null;
+                $item->save();
+            }
         }
         $category->delete();
 
