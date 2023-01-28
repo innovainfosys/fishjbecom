@@ -55,6 +55,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 
 
  Route::get('product/create' , [ProductController::class, 'create'])->name('create.product');
+ Route::get('product/edit/{id}' , [ProductController::class, 'edit'])->name('edit.product');
+ Route::get('products' , [ProductController::class, 'index'])->name('products');
  Route::post('product/store', [ProductController::class, 'store'])->name('store.product');
 
 
