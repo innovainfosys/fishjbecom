@@ -25,6 +25,15 @@
                             </div>
 
                             <div class="col-12">
+                                <label for="inputAddress" class="col-form-label">Slug</label>
+                                <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" id="inputAddress" placeholder="Write slug">
+                                @error('slug')
+                                <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+
+                            <div class="col-12">
                                 <label for="inputAddress" class="col-form-label">Description</label>
                                 <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" id="inputAddress" placeholder="Write description">
                                 @error('description')

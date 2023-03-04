@@ -368,21 +368,7 @@
                     <div class="row">
                         <h1 class="section-heading bangla-font">মিঠা পানির মাছের তালিকা</h1>
 
-                        <div class="col-md-6">
-                            <div class="river-fish-div">
-                                <div class="text-center">
-                                    <img src="{{asset('frontend/assets/images/fish1.jpg')}}" class="img-fluid" alt="">
-                                </div>
-                                <div class="text-center fish-name-div">
-                                    <h5 class="fish-name bangla-font">কাতল মাছ</h5>
-                                </div>
-                                <div class="text-center">
-                                    <span class="span-btn weight bangla-font"><i class="fa-solid fa-scale-balanced"></i>  ১ <i class="fa-solid fa-less-than"></i> কেজি</span>
-                                    <span class="span-btn price bangla-font"><i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i> ২,০০০</span>
-                                    <p class="span-btn price poppins river-add-cart"><a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a></p>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="col-md-6">
                             <div class="river-fish-div">
