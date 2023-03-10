@@ -11,9 +11,10 @@ class AttributeController extends Controller
 {
     public function index()
     {
-        $attributes = Attribute::all();
+        $attributes = Attribute::get();
 
-        return view('admin.attribute.index', ['attributes' => $attributes]);
+        return view('admin.attribute.index' , ['attributes' => $attributes]);
+
     }
 
     public function create()
@@ -23,6 +24,7 @@ class AttributeController extends Controller
 
     public function store(Request $request)
     {
+
         $validate = Validator::make($request->all(), [
             'name' => 'required',
         ],[

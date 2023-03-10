@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Edit Product</h5>
 
-                        <form class="row g-3" action="{{route('store.product')}}" method="post" enctype="multipart/form-data">
+                        <form class="row g-3" action="{{route('update.product', $product->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="col-6">
@@ -44,6 +44,7 @@
                                 <div class="product-variations">
                                     @foreach($product->variations as $variation)
                                     <div class="row">
+                                        <input type="hidden" value="{{$variation->id}}" name="variation_id[]">
                                         <div class="col-3">
                                             <input type="text" value="{{$variation->weight}}" class="form-control" name="weight[]" placeholder="weight">
                                         </div>
@@ -56,12 +57,17 @@
                                         <div class="col-3">
                                             <input type="text" value="{{$variation->sku}}" class="form-control" name="sku[]" placeholder="product sku">
                                         </div>
-                                        <div class="col-2">
-                                            <a class="btn btn-success btn-sm addbtn" id="addBtn">Add more</a>
-                                            <a class="btn btn-danger btn-sm deleteBtn" > <i class="bi bi-trash"></i> </a>
-                                        </div>
-                                        <div class="mt-2"></div>
+                                        @if($loop->iteration >= 2)
+                                            <div class="col-2">
+                                            <a onclick="deleteVariation(this, {{ $variation->id }})" class="btn btn-danger btn-sm deleteBtn" > <i class="bi bi-trash"></i> </a>
+                                            </div>
+                                        @else
+                                            <div class="col-2">
+                                                <a class="btn btn-success btn-sm addBtn" id="addBtn">Add more</a>
+                                            </div>
+                                        @endif
                                     </div>
+                                        <div class="mt-2"></div>
                                     @endforeach
                                 </div>
 
@@ -69,7 +75,7 @@
 
                             <div class="col-12">
                                 <label for="inputAddress" class="col-form-label">Description</label>
-                                <textarea class="form-control" name="description"></textarea>
+                                <textarea class="form-control" name="description">{{$product->description}}</textarea>
                                 @error('description')
                                 <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -85,6 +91,21 @@
                                       <strong>{{ $message }}</strong>
                                   </span>
                                 @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <div class="row">
+                                    @if($product->productImages)
+                                            @foreach($product->productImages as $image)
+                                            <div class="col-md-2">
+                                                <img src="{{asset('uploads/images/products/'.$image->image)}}" style="height: 80px; width: 80px;" class="me-4 border">
+                                                <a class="d-block" href="{{route('product.image.delete', $image->id)}}">Remove</a>
+                                            </div>
+                                           @endforeach
+                                </div>
+                                @else
+                                <h5>No Image Added</h5>
+                                @endif
                             </div>
 
                             <div class="text-center">
@@ -103,19 +124,19 @@
 
 @section('scripts')
     <script>
-        $('.addbtn').on('click', function () {
+        $('.addBtn').on('click', function () {
             $('.product-variations').append(`<div class="row mt-2">
                                         <div class="col-3">
-                                            <input type="text" class="form-control" name="weight[]" placeholder="weight">
+                                            <input type="text" class="form-control" name="new_weight[]" placeholder="weight">
                                         </div>
                                         <div class="col-2">
-                                            <input type="number" class="form-control" name="price[]" placeholder="Product Price">
+                                            <input type="number" class="form-control" name="new_price[]" placeholder="Product Price">
                                         </div>
                                         <div class="col-2">
-                                            <input type="number" class="form-control" name="quantity[]" placeholder="Product Quantity">
+                                            <input type="number" class="form-control" name="new_quantity[]" placeholder="Product Quantity">
                                         </div>
                                          <div class="col-3">
-                                            <input type="text" class="form-control" name="sku[]" placeholder="product sku">
+                                            <input type="text" class="form-control" name="new_sku[]" placeholder="product sku">
                                         </div>
                                         <div class="col-2">
                                             <a class="btn btn-danger btn-sm deleteBtn" > <i class="bi bi-trash"></i> </a>
@@ -124,9 +145,20 @@
 
         });
 
+        function deleteVariation(el, id)
+        {
+            if (Number(id) > 0) {
+                $('.product-variations').append('<input type="hidden" name="delete_variation[]" value="' + id + '" />');
+            }
+
+            $(el).parent().parent().remove();
+        }
+
         $(document).on('click', '.deleteBtn', function (){
             $(this).parent().parent().remove();
         })
+
+
 
     </script>
 @endsection

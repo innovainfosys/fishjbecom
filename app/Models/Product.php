@@ -9,6 +9,13 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'category_id',
+        'description',
+
+    ];
+
     protected $casts = [
         'status' => 'boolean'
         ];
