@@ -24,6 +24,7 @@ class CategoryController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'name' => 'required',
+            'slug' => 'required|unique:categories,slug',
             'parent_id' => 'nullable|numeric',
             'image' => 'nullable|image|mimes:png,jpg,jpeg'
         ],[
@@ -34,6 +35,7 @@ class CategoryController extends Controller
         }
         $category = new Category();
         $category->name        = $request->name;
+        $category->slug        = $request->slug;
         $category->description = $request->description;
         $category->parent_id   = $request->parent_id;
 

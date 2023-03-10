@@ -18,9 +18,20 @@ use App\Http\Controllers\Admin\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.Home');
 });
-
+Route::get('/check-out', function () {
+    return view('frontend.includes.CheckOut');
+});
+Route::get('/order-confirmation', function () {
+    return view('frontend.includes.OrderConfirmation');
+});
+Route::get('/product-page', function () {
+    return view('frontend.includes.ProductPage');
+});
+// Route::get('/test', function () {
+//     return view('frontend.pages.test');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

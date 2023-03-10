@@ -1,26 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- custom css link      -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+  @extends('frontend.layouts.Master')
 
-    <!-- font awesome custom link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-
-    
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-
+@section('content')
     <section class="checkout-section">
         <div class="container">
             <div class="row">
@@ -36,13 +17,13 @@
                     <div class="shipping-col-1 mt-5 desktop-payment">
                       <div class="mb-5"><h1 class="bold">পেমেন্টঃ</h1></div>
                       <div class="payment-box">
-                        <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">বিকাশ <img src="../assets/svg/bkash.svg" class="bkash-img" alt=""></span>
+                        <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">বিকাশ <img src="{{asset('frontend/assets/svg/bkash.svg')}}" class="bkash-img" alt=""></span>
                       </div>
                       <div class="payment-box">
-                        <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">নগদ <img src="../assets/svg/nagad.svg" class="bkash-img" alt=""></span>
+                        <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">নগদ <img src="{{asset('frontend/assets/svg/nagad.svg')}}" class="bkash-img" alt=""></span>
                       </div>
                       <div class="payment-box">
-                        <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">ভিসা কার্ড/মাস্টার কার্ড <img src="../assets/svg/visa.svg" class="bkash-img" alt=""><img src="../assets/svg/master.svg" class="bkash-img" alt=""></span>
+                        <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">ভিসা কার্ড/মাস্টার কার্ড <img src="{{asset('frontend/assets/svg/visa.svg')}}" class="bkash-img" alt=""><img src="{{asset('frontend/assets/svg/master.svg')}}" class="bkash-img" alt=""></span>
                       </div>
                     </div>
                 </div>
@@ -54,7 +35,7 @@
 
                       <div class="row">
                         <div class="col-md-2">
-                          <img src="../assets/images/b4.png" class="img-fluid" alt="">
+                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-8 middle">
                           <div>
@@ -69,7 +50,7 @@
 
                       <div class="row">
                         <div class="col-md-2">
-                          <img src="../assets/images/b4.png" class="img-fluid" alt="">
+                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-8 middle">
                           <div>
@@ -84,7 +65,7 @@
 
                       <div class="row">
                         <div class="col-md-2">
-                          <img src="../assets/images/b4.png" class="img-fluid" alt="">
+                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-8 middle">
                           <div>
@@ -99,7 +80,7 @@
 
                       <div class="row">
                         <div class="col-md-2">
-                          <img src="../assets/images/b4.png" class="img-fluid" alt="">
+                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-8 middle">
                           <div>
@@ -114,7 +95,7 @@
 
                       <div class="row">
                         <div class="col-md-2">
-                          <img src="../assets/images/b4.png" class="img-fluid" alt="">
+                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-8 middle">
                           <div>
@@ -129,7 +110,7 @@
 
                       <div class="row">
                         <div class="col-md-2">
-                          <img src="../assets/images/b4.png" class="img-fluid" alt="">
+                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-8 middle">
                           <div>
@@ -164,21 +145,17 @@
         <div class="shipping-col-1 mt-5 mb-5 mobile-payment">
           <div class="mb-5"><h1 class="bold">পেমেন্টঃ</h1></div>
           <div class="payment-box">
-            <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">বিকাশ <img src="../assets/svg/bkash.svg" class="bkash-img" alt=""></span>
+            <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">বিকাশ <img src="{{asset('frontend/assets/svg/bkash.svg')}}" class="bkash-img" alt=""></span>
           </div>
           <div class="payment-box">
-            <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">নগদ <img src="../assets/svg/nagad.svg" class="bkash-img" alt=""></span>
+            <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">নগদ <img src="{{asset('frontend/assets/svg/nagad.svg')}}" class="bkash-img" alt=""></span>
           </div>
           <div class="payment-box">
-            <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">ভিসা কার্ড/মাস্টার কার্ড <img src="../assets/svg/visa.svg" class="bkash-img" alt=""><img src="../assets/svg/master.svg" class="bkash-img" alt=""></span>
+            <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">ভিসা কার্ড/মাস্টার কার্ড <img src="{{asset('frontend/assets/svg/visa.svg')}}" class="bkash-img" alt=""><img src="{{asset('frontend/assets/svg/master.svg')}}" class="bkash-img" alt=""></span>
           </div>
         </div>
         
     </section>
 
    
-    <!-- bootstrap javascript link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-  </body>
-</html>
+@endsection()

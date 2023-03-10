@@ -368,6 +368,13 @@ input#\31 {
 }
 .count{
     padding:4px;
+    font-size: 14px;
+}
+.product-desc-title{
+    font-size: 36px;
+}
+.product-desc p{
+    font-size: 16px;
 }
 
 /* product template css code end from here  */
@@ -508,6 +515,26 @@ button.print-btn {
         left: 0;
     }
 }
+.col-md-12.d-flex input.form-control {
+    margin-top: 0!important;
+    padding-top: 0!important;
+}
+.col-md-12.footer-regards-text, .first-sub {
+    font-size: 16px;
+}
+
+.oc-titles{
+    font-size: 24px;
+}
+.pac-size{
+    font-size: 16px;
+}
+.oc-sub{
+    font-size: 15px;
+}
+.c-us-oc{
+    font-size: 12px;
+}
 
 
 /* order confirmation template css code start from here  */
@@ -586,6 +613,8 @@ button.print-btn {
     .col-md-4.footer-col-2-wrapper {
         margin-top: 16px;
     }
+  
+
 
     /* mobile home page responsive code end from here  */
 

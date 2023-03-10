@@ -1,24 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@include('frontend.includes.Header')
 
-    <!-- owl carousel links  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
-
-    <!-- jquery link  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    
-  </head>
-  <body>
 
     <section>
         <div class="container">
@@ -30,17 +11,17 @@
                             <h1 class="bangla-font">কাতল মাছ</h1>
                         </div>
                         <div class="product-image">
-                            <img src="../assets/images/new1.jpg" class="img-fluid" id="product-image1" alt="">
-                            <img src="../assets/images/b2.png" class="img-fluid big-img" id="product-image2" alt="">
-                            <img src="../assets/images/b3.png" class="img-fluid  big-img" id="product-image3" alt="">
-                            <img src="../assets/images/b4.png" class="img-fluid big-img" id="product-image4" alt="">
+                            <img src="{{asset('frontend/assets/images/new1.jpg')}}" class="img-fluid" id="product-image1" alt="">
+                            <img src="{{asset('frontend/assets/images/b2.png')}}" class="img-fluid big-img" id="product-image2" alt="">
+                            <img src="{{asset('frontend/assets/images/b3.png')}}" class="img-fluid  big-img" id="product-image3" alt="">
+                            <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid big-img" id="product-image4" alt="">
                             
                             
                             <div class="row mt-2 owl-carousel owl-theme">
-                                <div class="col-md-3 item"><img src="../assets/images/new1.jpg" onclick="galleryItem1()" class="img-fluid gallery-images" alt=""></div>
-                                <div class="col-md-3 item"><img src="../assets/images/b2.png" onclick="galleryItem2()" class="img-fluid gallery-images" alt=""></div>
-                                <div class="col-md-3 item"><img src="../assets/images/b3.png" onclick="galleryItem3()" class="img-fluid gallery-images" alt=""></div>
-                                <div class="col-md-3 item"><img src="../assets/images/b4.png" onclick="galleryItem4()" class="img-fluid gallery-images" alt=""></div>
+                                <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/new1.jpg')}}" onclick="galleryItem1()" class="img-fluid gallery-images" alt=""></div>
+                                <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/b2.png')}}" onclick="galleryItem2()" class="img-fluid gallery-images" alt=""></div>
+                                <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/b3.png')}}" onclick="galleryItem3()" class="img-fluid gallery-images" alt=""></div>
+                                <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/b4.png')}}" onclick="galleryItem4()" class="img-fluid gallery-images" alt=""></div>
                             </div>
                         </div>
                     </div>
@@ -109,8 +90,8 @@
             </div>
 
             <div class="row mt-5">
-                <div class="col-md-12">
-                    <h1 class="">Description</h1>
+                <div class="col-md-12 product-desc">
+                    <h1 class="product-desc-title">Description</h1>
                     <p class="bangla-font text-center mt-4">
                         <p><strong>Origin:</strong> Aquacultured Asia<br> <strong>Diet:</strong> Predator, will accept frozen and sinking foods<br> <strong>Adult Size: </strong>12″<br> <strong>Recommended Tank Size:</strong> 90 gallon<br> <strong>Compatibility: </strong>Predatory, but generally not aggressive towards tankmates too big to be considered a meal. Should not be kept with overly aggressive fish which may nip at their fins.</p>
                         <p class="mt-3"><strong>Preferred Water Parameters<br> pH:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.0&nbsp; – 7.6<br> Temp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 76-82F<br> Ammonia:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0ppm<br> Nitrite:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 0ppm<br> Nitrate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;30ppm</strong></p>
@@ -251,6 +232,5 @@
   })
     </script>
 
-  </body>
-</html>
+@include('frontend.includes.ProductPageFooter')
 
