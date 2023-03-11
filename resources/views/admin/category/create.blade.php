@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Add New Category</h5>
 
-                        <form class="row g-3" action="{{route('store.category')}}" method="post" enctype="multipart/form-data">
+                        <form class="row g-3" action="{{route('store.category')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-12">
                                 <label for="Name" class="col-form-label">Name</label>
@@ -23,15 +23,6 @@
                                   </span>
                                 @enderror
                             </div>
-
-                            <div class="col-12">
-                                <label for="inputAddress" class="col-form-label">Slug</label>
-                                <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" id="inputAddress" placeholder="Write slug">
-                                @error('slug')
-                                <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                                @enderror
 
                             <div class="col-12">
                                 <label for="inputAddress" class="col-form-label">Description</label>
@@ -45,7 +36,7 @@
 
                             <div class="col-12">
                                 <label for="inputAddress" class="col-form-label">Select a Parent Category</label>
-                                <select name="category_id" class="form-select">
+                                <select name="parent_id" class="form-select">
                                     <option value="">None</option>
                                     @if($categories)
                                         @foreach($categories as $category)

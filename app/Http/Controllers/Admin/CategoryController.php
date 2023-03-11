@@ -7,7 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Validator;
-use function League\Flysystem\move;
+use Illuminate\Support\Str;
 
 
 class CategoryController extends Controller
@@ -22,20 +22,9 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $validate = Validator::make($request->all(), [
-            'name' => 'required',
-            'slug' => 'required|unique:categories,slug',
-            'parent_id' => 'nullable|numeric',
-            'image' => 'nullable|image|mimes:png,jpg,jpeg'
-        ],[
-            'name.required' => 'Name is must.',
-        ]);
-        if($validate->fails()){
-            return back()->withErrors($validate->errors())->withInput();
-        }
         $category = new Category();
         $category->name        = $request->name;
-        $category->slug        = $request->slug;
+        $category->slug        = Str::slug($request->name);
         $category->description = $request->description;
         $category->parent_id   = $request->parent_id;
 

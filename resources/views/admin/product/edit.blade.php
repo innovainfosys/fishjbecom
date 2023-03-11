@@ -84,24 +84,38 @@
                             </div>
 
                             <div class="col-6">
-                                <label for="inputAddress" class="col-form-label">Gallery Images</label>
-                                <input type="file" name="image[]" multiple="" accept="images/*" class="form-control @error('image') is-invalid @enderror" id="formFile">
-                                @error('image')
+                                <label for="inputAddress" class="col-form-label">Featured Images</label>
+                                <input type="file" name="featured_image"  accept="images/*" class="form-control @error('featured_image') is-invalid @enderror" id="formFile" required>
+                                <div class="mt-2">
+                                    <img src="{{asset('uploads/images/products/'.$product->featured_image)}}" style="height: 80px; width: 80px;" class="me-4 border">
+                                </div>
+
+                                @error('featured_image')
                                 <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
                                 @enderror
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
+                                <label for="inputAddress" class="col-form-label">Gallery Images</label>
+                                <input type="file" name="image[]" multiple="" accept="images/*" class="form-control @error('image') is-invalid @enderror" id="formFile">
+                                @if($product->productImages)
+                                    @foreach($product->productImages as $image)
+                                        <div class="mt-2">
+                                            <img src="{{asset('uploads/images/products/'.$image->image)}}" style="height: 80px; width: 80px;" class="me-4 border">
+                                            <a class="d-block" href="{{route('product.image.delete', $image->id)}}">Remove</a>
+                                        </div>
+                                    @endforeach
+                                @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                            </div>
+                            <div class="col-6">
                                 <div class="row">
-                                    @if($product->productImages)
-                                            @foreach($product->productImages as $image)
-                                            <div class="col-md-2">
-                                                <img src="{{asset('uploads/images/products/'.$image->image)}}" style="height: 80px; width: 80px;" class="me-4 border">
-                                                <a class="d-block" href="{{route('product.image.delete', $image->id)}}">Remove</a>
-                                            </div>
-                                           @endforeach
+
                                 </div>
                                 @else
                                 <h5>No Image Added</h5>

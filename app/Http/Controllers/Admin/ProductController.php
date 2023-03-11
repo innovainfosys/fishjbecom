@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Variation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -26,12 +27,22 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $product = Product::create([
-            'title' => $request->title,
-            'category_id' => $request->category_id,
-            'description' => $request->description,
-            'status' => true
-        ]);
+
+        $product = new Product();
+        $product->title = $request->title;
+        $product->slug = Str::slug($request->title);
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
+
+
+        if ($request->hasFile('featured_image')) {
+            $imageFile = $request->file('featured_image');
+            $imageFileName = 'product_featured_' . time() . '.' . $imageFile->getClientOriginalExtension();
+
+            $imageFile->move('uploads/images/products', $imageFileName);
+            $product->featured_image = $imageFileName;
+        }
+        $product->save();
 
         $variations = [];
         foreach ($request->weight as $key => $value) {
@@ -115,6 +126,8 @@ class ProductController extends Controller
             $toBeDeleted = array_diff($request->delete_variation, $existingVariations);
             Variation::whereIn('id', $toBeDeleted)->delete();
         }
+
+
 
         return redirect()->back()->with('success', 'Product Updated Successfully');
     }

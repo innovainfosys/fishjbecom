@@ -17,7 +17,7 @@
 
                             <div class="col-6">
                                 <label for="Name" class="col-form-label">Product Title</label>
-                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="inputName" >
+                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="inputName" required >
                                 @error('title')
                                 <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
                                 </div>
                             <div class="col-6">
                                     <label for="inputAddress" class="col-form-label">Select a Category</label>
-                                    <select name="category_id" class="form-select">
+                                    <select name="category_id" class="form-select" required>
                                         <option></option>
                                         @if($categories)
                                             @foreach($categories as $category)
@@ -44,16 +44,16 @@
                                 <div class="product-variations">
                                     <div class="row">
                                         <div class="col-3">
-                                            <input type="text" class="form-control" name="weight[]" placeholder="weight">
+                                            <input type="number" class="form-control" name="weight[]" placeholder="weight" required>
                                         </div>
                                         <div class="col-2">
-                                            <input type="number" class="form-control" name="price[]" placeholder="Product Price">
+                                            <input type="number" class="form-control" name="price[]" placeholder="Product Price" required>
                                         </div>
                                         <div class="col-2">
-                                            <input type="number" class="form-control" name="quantity[]" placeholder="Product Quantity">
+                                            <input type="number" class="form-control" name="quantity[]" placeholder="Product Quantity" required>
                                         </div>
                                         <div class="col-3">
-                                            <input type="text" class="form-control" name="sku[]" placeholder="product sku">
+                                            <input type="text" class="form-control" name="sku[]" placeholder="SKU" required>
                                         </div>
                                         <div class="col-2">
                                             <a class="btn btn-success btn-sm" id="addBtn">Add more</a>
@@ -72,7 +72,15 @@
                                   </span>
                                 @enderror
                             </div>
-
+                            <div class="col-6">
+                                <label for="inputAddress" class="col-form-label">Featured Images</label>
+                                <input type="file" name="featured_image"  accept="images/*" class="form-control @error('featured_image') is-invalid @enderror" id="formFile" required>
+                                @error('featured_image')
+                                <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                            </div>
                                 <div class="col-6">
                                     <label for="inputAddress" class="col-form-label">Gallery Images</label>
                                     <input type="file" name="image[]" multiple="" accept="images/*" class="form-control @error('image') is-invalid @enderror" id="formFile">
@@ -102,16 +110,16 @@
         $('#addBtn').on('click', function () {
             $('.product-variations').append(`<div class="row mt-2">
                                         <div class="col-3">
-                                            <input type="text" class="form-control" name="weight[]" placeholder="weight">
+                                            <input type="number" class="form-control" name="weight[]" placeholder="weight" required>
                                         </div>
                                         <div class="col-2">
-                                            <input type="number" class="form-control" name="price[]" placeholder="Product Price">
+                                            <input type="number" class="form-control" name="price[]" placeholder="Product Price" required>
                                         </div>
                                         <div class="col-2">
-                                            <input type="number" class="form-control" name="quantity[]" placeholder="Product Quantity">
+                                            <input type="number" class="form-control" name="quantity[]" placeholder="Product Quantity" required>
                                         </div>
                                          <div class="col-3">
-                                            <input type="text" class="form-control" name="sku[]" placeholder="product sku">
+                                            <input type="text" class="form-control" name="sku[]" placeholder="SKU" required>
                                         </div>
                                         <div class="col-2">
                                             <a class="btn btn-danger btn-sm deleteBtn" > <i class="bi bi-trash"></i> </a>

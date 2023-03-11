@@ -63,38 +63,38 @@
                 }
             });
 
-            $('body').on('click', '.delete', function () {
-                var id = $(this).data("id");
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: '{{ route('delete.attribute') }}',
-                            method: 'delete',
-                            data: {
-                                id: id,
-                                _token: '{{ csrf_token() }}'
-                            },
-                            success: function(response) {
-                                console.log(response);
-                                Swal.fire(
-                                    'Deleted!',
-                                    'Attribute has been deleted.',
-                                    'success'
-                                )
-                                location.reload();
-                            }
-                        });
-                    }
-                });
-            });
+            {{--$('body').on('click', '.delete', function () {--}}
+            {{--    var id = $(this).data("id");--}}
+            {{--    Swal.fire({--}}
+            {{--        title: 'Are you sure?',--}}
+            {{--        text: "You won't be able to revert this!",--}}
+            {{--        icon: 'warning',--}}
+            {{--        showCancelButton: true,--}}
+            {{--        confirmButtonColor: '#3085d6',--}}
+            {{--        cancelButtonColor: '#d33',--}}
+            {{--        confirmButtonText: 'Yes, delete it!'--}}
+            {{--    }).then((result) => {--}}
+            {{--        if (result.isConfirmed) {--}}
+            {{--            $.ajax({--}}
+            {{--                url: '{{ route('delete.attribute') }}',--}}
+            {{--                method: 'delete',--}}
+            {{--                data: {--}}
+            {{--                    id: id,--}}
+            {{--                    _token: '{{ csrf_token() }}'--}}
+            {{--                },--}}
+            {{--                success: function(response) {--}}
+            {{--                    console.log(response);--}}
+            {{--                    Swal.fire(--}}
+            {{--                        'Deleted!',--}}
+            {{--                        'Attribute has been deleted.',--}}
+            {{--                        'success'--}}
+            {{--                    )--}}
+            {{--                    location.reload();--}}
+            {{--                }--}}
+            {{--            });--}}
+            {{--        }--}}
+            {{--    });--}}
+            {{--});--}}
 
         });
     </script>

@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mriduls', function (Blueprint $table) {
+        Schema::create('home_block_products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('home_block_id');
+            $table->unsignedBigInteger('product_id');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mriduls');
+        Schema::dropIfExists('home_block_products');
     }
 };

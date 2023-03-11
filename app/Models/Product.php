@@ -16,9 +16,6 @@ class Product extends Model
 
     ];
 
-    protected $casts = [
-        'status' => 'boolean'
-        ];
 
     public function categories()
     {
@@ -28,6 +25,14 @@ class Product extends Model
     public function variations()
     {
         return $this->hasMany(Variation::class,'product_id','id');
+    }
+    public function getMinWeight()
+    {
+        return $this->variations()->min('weight');
+    }
+    public function getMinPrice()
+    {
+        return $this->variations()->min('price');
     }
 
     public function productImages()
