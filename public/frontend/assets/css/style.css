@@ -539,6 +539,38 @@ button.print-btn {
 
 /* order confirmation template css code start from here  */
 
+/* modal css start from here  */
+.modal-header {
+    display: block!important;
+    background: #ffca2c;
+}
+.close:focus, .close:hover {
+    color: red;
+}
+.modal-footer, .modal-header{
+    border-top: 1px solid transparent!important;
+}
+h5#exampleModalLabel {
+    font-size: 16px;
+}
+.modal-div-wrapper select {
+    border: 1px solid whitesmoke;
+    padding: 12px;
+    font-size: 12px;
+}
+.modal-footer {
+    justify-content: center;
+}
+.btn-danger, .btn-success {
+    font-size: 16px;
+}
+.modal-div-wrapper select option {
+    font-size: 14px;
+}
+
+/* modal css end from here  */
+
+
 
 
 
@@ -613,12 +645,12 @@ button.print-btn {
     .col-md-4.footer-col-2-wrapper {
         margin-top: 16px;
     }
-  
+
 
 
     /* mobile home page responsive code end from here  */
 
-    
+
     /* mobile product page responsive code end from here  */
 
     .product-title h1, .billing-title h1 {
@@ -736,7 +768,7 @@ button.print-btn {
 
 
     /* mobile order confirmation page responsive code end from here  */
-    
+
 
 }
 @media (min-width: 768px) and (max-width: 1024px){
