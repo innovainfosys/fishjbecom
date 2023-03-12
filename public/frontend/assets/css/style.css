@@ -540,6 +540,38 @@ button.print-btn {
 
 /* order confirmation template css code start from here  */
 
+/* modal css start from here  */
+.modal-header {
+    display: block!important;
+    background: #ffca2c;
+}
+.close:focus, .close:hover {
+    color: red;
+}
+.modal-footer, .modal-header{
+    border-top: 1px solid transparent!important;
+}
+h5#exampleModalLabel {
+    font-size: 16px;
+}
+.modal-div-wrapper select {
+    border: 1px solid whitesmoke;
+    padding: 12px;
+    font-size: 12px;
+}
+.modal-footer {
+    justify-content: center;
+}
+.btn-danger, .btn-success {
+    font-size: 16px;
+}
+.modal-div-wrapper select option {
+    font-size: 14px;
+}
+
+/* modal css end from here  */
+
+
 
 
 
