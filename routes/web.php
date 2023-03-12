@@ -50,3 +50,7 @@ Route::group(['middleware' => 'cart'], function(){
 
 require __DIR__.'/admin.php';
 
+Route::get('/shop', function () {
+    return view('frontend.pages.ShopPage');
+});
+
