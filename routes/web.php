@@ -18,6 +18,9 @@ use App\Http\Controllers\Web\HomeController;
 
 Route::group(['middleware' => 'cart'], function(){
     Route::get('/', [HomeController::class, 'home'])->name('Home');
+    Route::get('/product/{slug}/details', [HomeController::class, 'productSingleView'])->name('Product.Single.View');
+
+
     Route::get('/check-out', function () {
         return view('frontend.includes.CheckOut');
     });

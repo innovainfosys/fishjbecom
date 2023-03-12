@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\HomeBlock;
 use App\Models\HomeBlockProducts;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,5 +22,12 @@ class HomeController extends Controller
             'sweetWaterFishTalikas' => $sweetWaterFishTalikas,
             'salWaterFishTalikas' => $saltWaterFishTalikas,
             ]);
+    }
+
+    public function productSingleView($slug)
+    {
+        $product = Product::with('productImages','variations')->where('slug', $slug)->get();
+
+        return view('frontend.pages.ProductPage', ['product' => $product]);
     }
 }

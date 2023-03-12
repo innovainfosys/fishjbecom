@@ -5,6 +5,7 @@ body{
 }
 a{
     text-decoration: none!important;
+    color: black;
 }
 p{
     margin-bottom: 0;
@@ -613,12 +614,12 @@ button.print-btn {
     .col-md-4.footer-col-2-wrapper {
         margin-top: 16px;
     }
-  
+
 
 
     /* mobile home page responsive code end from here  */
 
-    
+
     /* mobile product page responsive code end from here  */
 
     .product-title h1, .billing-title h1 {
@@ -736,7 +737,7 @@ button.print-btn {
 
 
     /* mobile order confirmation page responsive code end from here  */
-    
+
 
 }
 @media (min-width: 768px) and (max-width: 1024px){

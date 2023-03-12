@@ -21,10 +21,14 @@
                 <div class="col-md-6 fish-col">
                     <div class="fish-div">
                         <div class="text-center">
+                            <a href="{{route('Product.Single.View', $item->product->slug)}}">
                             <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" class="img-fluid" alt="">
+                            </a>
                         </div>
                         <div class="text-center fish-name-div">
+                            <a href="{{route('Product.Single.View', $item->product->slug)}}">
                             <h5 class="fish-name bangla-font">{{$item->product->title}}</h5>
+                            </a>
                         </div>
                         <div class="text-center">
                             <span class="span-btn weight bangla-font"><i class="fa-solid fa-scale-balanced"></i>   <i class="fa-solid fa-less-than"></i>
@@ -65,10 +69,14 @@
                             <div class="col-md-6">
                                 <div class="river-fish-div">
                                     <div class="text-center">
+                                        <a href="{{route('Product.Single.View', $item->product->slug)}}">
                                         <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" class="img-fluid" alt="">
+                                        </a>
                                     </div>
                                     <div class="text-center fish-name-div">
-                                        <h5 class="fish-name bangla-font">{{$item->product->title}}</h5>
+                                        <a href="{{route('Product.Single.View', $item->product->slug)}}">
+                                            <h5 class="fish-name bangla-font">{{$item->product->title}}</h5>
+                                        </a>
                                     </div>
                                     <div class="text-center">
                                         <span class="span-btn weight bangla-font"><i class="fa-solid fa-scale-balanced"></i>
@@ -98,10 +106,14 @@
                             <div class="col-md-6">
                                 <div class="river-fish-div">
                                     <div class="text-center">
+                                        <a href="{{route('Product.Single.View', $item->product->slug)}}">
                                         <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" class="img-fluid" alt="">
+                                        </a>
                                     </div>
                                     <div class="text-center fish-name-div">
+                                        <a href="{{route('Product.Single.View', $item->product->slug)}}">
                                         <h5 class="fish-name bangla-font">{{$item->product->title}}</h5>
+                                        </a>
                                     </div>
                                     <div class="text-center">
                                         <span class="span-btn weight bangla-font"><i class="fa-solid fa-scale-balanced"></i>

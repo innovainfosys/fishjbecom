@@ -3,20 +3,21 @@
 
     <section>
         <div class="container">
+            @foreach($product as $row)
             <div class="row">
-    
+
                 <div class="col-md-6">
                     <div class="product-page-left-wrapper">
                         <div class="product-title">
-                            <h1 class="bangla-font">কাতল মাছ</h1>
+                            <h1 class="bangla-font">{{$row->title}}</h1>
                         </div>
                         <div class="product-image">
                             <img src="{{asset('frontend/assets/images/new1.jpg')}}" class="img-fluid" id="product-image1" alt="">
                             <img src="{{asset('frontend/assets/images/b2.png')}}" class="img-fluid big-img" id="product-image2" alt="">
                             <img src="{{asset('frontend/assets/images/b3.png')}}" class="img-fluid  big-img" id="product-image3" alt="">
                             <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid big-img" id="product-image4" alt="">
-                            
-                            
+
+
                             <div class="row mt-2 owl-carousel owl-theme">
                                 <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/new1.jpg')}}" onclick="galleryItem1()" class="img-fluid gallery-images" alt=""></div>
                                 <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/b2.png')}}" onclick="galleryItem2()" class="img-fluid gallery-images" alt=""></div>
@@ -27,8 +28,8 @@
                     </div>
                 </div>
 
-                
-    
+
+
                 <div class="col-md-6">
                     <div class="product-page-right-wrapper ">
                         <div class="billing-title">
@@ -37,39 +38,26 @@
 
                         <div class="price-wrapper mt-5">
                             <div class="row">
-
+                                <form></form>
+                                @foreach($row->variations as $variation)
                                 <div class="col-md-4 mb-4 productWeight">
                                     <p class="mb-2 bold pack-1">প্যাকেটের পরিমাণ</p>
                                     <div class="billing-col" id="billCol">
-                                        <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>৪৫০ গ্রাম</p></div>
-                                        <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>৭৫০ টাকা</p></div>
-                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN" onclick="billSelect()"><a href="">নির্বাচন করুন</a></p></div>
-                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN"><a href="">নির্বাচিত</a></p></div>
+                                        <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>{{$variation->weight}}</p></div>
+                                        <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>{{$variation->price}}</p></div>
+                                            <label for="radio-inline control-label">নির্বাচন করুন
+                                            <input type="radio" name="packet" value="{{$variation->id}}">
+                                            </label>
+                                        {{--                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN" onclick="billSelect()"><a href="">নির্বাচন করুন</a></p></div>--}}
+{{--                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN"><a href="">নির্বাচিত</a></p></div>--}}
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-4 productWeight">
-                                    <p class="mb-2 bold pack-2">প্যাকেটের পরিমাণ</p>
-                                    <div class="billing-col" id="billCol2">
-                                        <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>১ কেজি</p></div>
-                                        <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>১০৫০ টাকা</p></div>
-                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN2" onclick="billSelect2()"><a href="">নির্বাচন করুন</a></p></div>
-                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN2"><a href="">নির্বাচিত</a></p></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-4 productWeight">
-                                    <p class="mb-2 bold pack-3">প্যাকেটের পরিমাণ</p>
-                                    <div class="billing-col" id="billCol3">
-                                        <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>২ কেজি</p></div>
-                                        <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>১৬৫০ টাকা</p></div>
-                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN3" onclick="billSelect3()"><a href="">নির্বাচন করুন</a></p></div>
-                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN3"><a href="">নির্বাচিত</a></p></div>
-                                    </div>
-                                </div>
-                                
+                                @endforeach
+
                             </div>
                         </div>
 
-                       
+
 
                         <div class="packet-pieces-wrap wrap">
                                 <p class="mb-3 bold">প্যাকেটের সংখ্যা</p>
@@ -83,42 +71,39 @@
 
                         </div>
 
-                        
+
                     </div>
                 </div>
-    
+
             </div>
 
             <div class="row mt-5">
                 <div class="col-md-12 product-desc">
-                    <h1 class="product-desc-title">Description</h1>
-                    <p class="bangla-font text-center mt-4">
-                        <p><strong>Origin:</strong> Aquacultured Asia<br> <strong>Diet:</strong> Predator, will accept frozen and sinking foods<br> <strong>Adult Size: </strong>12″<br> <strong>Recommended Tank Size:</strong> 90 gallon<br> <strong>Compatibility: </strong>Predatory, but generally not aggressive towards tankmates too big to be considered a meal. Should not be kept with overly aggressive fish which may nip at their fins.</p>
-                        <p class="mt-3"><strong>Preferred Water Parameters<br> pH:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.0&nbsp; – 7.6<br> Temp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 76-82F<br> Ammonia:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0ppm<br> Nitrite:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 0ppm<br> Nitrate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;30ppm</strong></p>
-                    </div>
+                    <h1 class="product-desc-title">{{$row->description}}</h1>
             </div>
+            @endforeach
 
         </div>
     </section>
 
     <script>
-        
-        // product quantity jquery code 
 
-        $('.add').click(function () {		
-        var th = $(this).closest('.wrap').find('.count');    	
+        // product quantity jquery code
+
+        $('.add').click(function () {
+        var th = $(this).closest('.wrap').find('.count');
         th.val(+th.val() + 1);
         });
         $('.sub').click(function () {
-        var th = $(this).closest('.wrap').find('.count');    	
+        var th = $(this).closest('.wrap').find('.count');
                 if (th.val() > 1) th.val(+th.val() - 1);
         });
 
         // bill select button js code
 
-        var billSelectBTN = document.getElementById('billSelectBTN');
-        var billSelectedBTN = document.getElementById('billSelectedBTN');
-        var billCol = document.getElementById('billCol');
+        var billSelectBTN1 = document.getElementById('billSelectBTN1');
+        var billSelectedBTN1 = document.getElementById('billSelectedBTN1');
+        var billCol1 = document.getElementById('billCol1');
 
         var billSelectBTN2 = document.getElementById('billSelectBTN2');
         var billSelectedBTN2 = document.getElementById('billSelectedBTN2');
@@ -128,16 +113,16 @@
         var billSelectedBTN3 = document.getElementById('billSelectedBTN3');
         var billCol3 = document.getElementById('billCol3');
 
-        
 
 
-        function billSelect(){
-            billSelectBTN.style.display     = "none";
-            billSelectedBTN.style.display   = "block";
-            billCol.style.boxShadow         = "1px 0px 10px 1px #00975878";
+
+        function billSelect1(){
+            billSelectBTN1.style.display     = "none";
+            billSelectedBTN1.style.display   = "block";
+            billCol1.style.boxShadow         = "1px 0px 10px 1px #00975878";
             billCol2.style.boxShadow        = "none";
             billCol3.style.boxShadow        = "none";
-            billCol.style.border            = "2px solid #0097587d";
+            billCol1.style.border            = "2px solid #0097587d";
             billSelectedBTN2.style.display  = "none";
             billSelectBTN2.style.display    = "block";
             billSelectedBTN3.style.display  = "none";
@@ -146,9 +131,9 @@
         function billSelect2(){
             billSelectBTN2.style.display    = "none";
             billSelectedBTN2.style.display  = "block";
-            billSelectedBTN.style.display   = "none";
-            billSelectBTN.style.display     = "block";
-            billCol.style.boxShadow         = "none";
+            billSelectedBTN1.style.display   = "none";
+            billSelectBTN1.style.display     = "block";
+            billCol1.style.boxShadow         = "none";
             billCol2.style.boxShadow        = "1px 0px 10px 1px #00975878";
             billCol3.style.boxShadow        = "none";
             billCol2.style.border           = "2px solid #0097587d";
@@ -158,9 +143,9 @@
         function billSelect3(){
             billSelectBTN3.style.display    = "none";
             billSelectedBTN3.style.display  = "block";
-            billSelectedBTN.style.display   = "none";
-            billSelectBTN.style.display     = "block";
-            billCol.style.boxShadow         = "none";
+            billSelectedBTN1.style.display   = "none";
+            billSelectBTN1.style.display     = "block";
+            billCol1.style.boxShadow         = "none";
             billCol2.style.boxShadow        = "none";
             billCol3.style.boxShadow        = "1px 0px 10px 1px #00975878";
             billCol3.style.border           = "2px solid #0097587d";
@@ -169,7 +154,7 @@
         }
 
 
-        // gallery image js code 
+        // gallery image js code
         var productImage1 = document.getElementById('product-image1');
         var productImage2 = document.getElementById('product-image2');
         var productImage3 = document.getElementById('product-image3');
@@ -209,7 +194,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  
+
 
     <script>
       $('.owl-carousel').owlCarousel({
