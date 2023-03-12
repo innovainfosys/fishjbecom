@@ -128,6 +128,21 @@ class ProductController extends Controller
         }
 
 
+        if ($request->hasFile('image')) {
+            $uploadPath = 'uploads/images/products';
+            $productImages = [];
+            foreach ($request->file('image') as $imgFile) {
+                $imageFileName = 'product_' . time() . '.' . $imgFile->getClientOriginalExtension();
+                $imgFile->move($uploadPath, $imageFileName);
+                $productImages[] = [
+                    'product_id' => $product->id,
+                    'image' => $imageFileName
+                ];
+            }
+            ProductImage::insert($productImages);
+        }
+
+
 
         return redirect()->back()->with('success', 'Product Updated Successfully');
     }
