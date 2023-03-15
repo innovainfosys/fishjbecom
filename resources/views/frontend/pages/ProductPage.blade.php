@@ -45,9 +45,11 @@
                                     <div class="billing-col" id="billCol">
                                         <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>{{$variation->weight}}</p></div>
                                         <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>{{$variation->price}}</p></div>
-                                            <label for="radio-inline control-label">নির্বাচন করুন
-                                            <input type="radio" name="packet" value="{{$variation->id}}">
-                                            </label>
+                                            <div class="label-wrapper">
+                                                <label for="flexCheckDefault">lorem</label>
+                                                <input type="radio" name="packet" id="flexCheckDefault" value="{{$variation->id}}">
+                                            </div>
+
                                         {{--                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN" onclick="billSelect()"><a href="">নির্বাচন করুন</a></p></div>--}}
 {{--                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN"><a href="">নির্বাচিত</a></p></div>--}}
                                     </div>
