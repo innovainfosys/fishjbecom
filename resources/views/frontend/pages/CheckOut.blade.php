@@ -12,10 +12,10 @@
                 <div class="col-md-6 bill-col-1">
                     <div class="shipping-col-1">
                       <div class="mb-5"><h1 class="bold">প্রেরণের ঠিকানাঃ</h1></div>
-                      <div class="first-name mb-4"><lebel>পূর্ণনাম</lebel><input type="text" required="required" placeholder="আবশ্যিক" name="" id=""></div>
-                      <div class="number mb-4"><lebel>মোবাইল</lebel><input type="number" required="required" placeholder="আবশ্যিক" name="" id=""></div>
-                      <div class="address mb-4"><lebel>ঠিকানা</lebel><input type="text" required="required" placeholder="আবশ্যিক" name="" id=""></div>
-                      <div class="email mb-4"><lebel>ইমেইল</lebel><input type="email"  placeholder="বাধ্যতামূলক নয়" name="" id=""></div>
+                      <div class="first-name mb-4"><label>পূর্ণনাম</label><input type="text" required="required" placeholder="আবশ্যিক" name="" id=""></div>
+                      <div class="number mb-4"><label>মোবাইল</label><input type="number" required="required" placeholder="আবশ্যিক" name="" id=""></div>
+                      <div class="address mb-4"><label>ঠিকানা</label><input type="text" required="required" placeholder="আবশ্যিক" name="" id=""></div>
+                      <div class="email mb-4"><label>ইমেইল</label><input type="email"  placeholder="বাধ্যতামূলক নয়" name="" id=""></div>
                     </div>
                     <div class="shipping-col-1 mt-5 desktop-payment">
                       <div class="mb-5"><h1 class="bold">পেমেন্টঃ</h1></div>

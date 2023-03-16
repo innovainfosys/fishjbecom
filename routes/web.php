@@ -39,11 +39,11 @@ Route::group(['middleware' => 'cart'], function(){
         return view('frontend.includes.OrderConfirmation');
     });
     Route::get('/product-page', function () {
-        return view('frontend.includes.ProductPage');
+        return view('frontend.pages.ProductPage');
     });
-// Route::get('/test', function () {
-//     return view('frontend.pages.test');
-// });
+    Route::get('/cart', function () {
+        return view('frontend.pages.Cart');
+    });
 
     Route::get('/dashboard', function () {
         return view('dashboard');

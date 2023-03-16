@@ -770,6 +770,50 @@ h5#exampleModalLabel {
 
     /* mobile order confirmation page responsive code end from here  */
 
+    /* mobile cart page responsive code start from here */
+
+    .cart-table-title{
+        display: none;
+    }
+    .col-md-3.justify-center.cart-fish-image {
+        width: 25%;
+    }
+    .col-md-3.middle.justify-center.cart-fish-title {
+        width: 25%;
+    }
+    .col-3.middle.justify-center.cart-fish-quantity {
+        width: 25%;
+    }
+    .col-md-2.middle.text-center.justify-center.cart-fish-total-price {
+        width: 15%;
+    }
+    .col-md-1.middle.text-center.justify-center.cart-trash-btn.cart-item-delete {
+        width: 10%;
+    }
+    .shipping-col-2 {
+        padding: 6px;
+    }
+    .cart-trash-btn a {
+        padding: 4px 8px!important;
+    }
+    .cart-trash-btn a i {
+        font-size: 12px!important;
+    }
+    input#\31 {
+        width: 26px;
+        font-size: 12px;
+    }
+    button#sub {
+        padding: 0px 3px;
+        margin: 0!important;
+    }
+    button#add {
+        padding: 0px 3px;
+        margin: 0!important;
+    }
+
+    /* mobile cart page responsive code end from here */
+
 
 }
 @media (min-width: 768px) and (max-width: 1024px){
@@ -827,3 +871,18 @@ label.form-check-label {
 
 
 /* responsive css code end from here  */
+
+/* cart page css code start from here */
+
+.cart-trash-btn a {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.cart-trash-btn a i {
+    color: red;
+    font-size: 16px;
+}
+
+/* cart page css code end from here */
+
