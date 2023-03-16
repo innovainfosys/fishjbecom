@@ -17,6 +17,7 @@ class HomeController extends Controller
         $saltWaterFishTalikas = $homeBlocks[1];
         $sweetWaterFishTalikas = $homeBlocks[2];
 
+
         return view('frontend.pages.Home', [
             'fishTalikas' => $fishTalikas,
             'sweetWaterFishTalikas' => $sweetWaterFishTalikas,

@@ -22,7 +22,7 @@
                     <div class="fish-div">
                         <div class="text-center">
                             <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                            <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" class="img-fluid" alt="">
+                            <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" height="250" width="250" alt="">
                             </a>
                         </div>
                         <div class="text-center fish-name-div">
@@ -56,10 +56,10 @@
                                     <div class="modal-body">
                                     <div class="modal-div-wrapper">
                                         <select name="" id="">
-                                            <option value="">প্যাকেট নির্বাচন করুন</option>
-                                            <option value="">২৫০ গ্রাম ৭০০৳</option>
-                                            <option value="">৫০০ গ্রাম ১২০০৳</option>
-                                            <option value="">০০০ গ্রাম ১৭০০৳</option>
+[                                            @foreach($item->product->variations as $variation)
+]                                            <option value="">প্যাকেট নির্বাচন করুন</option>
+                                                <option value=""> {{$variation->weight}} gm {{$variation->price}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     </div>
@@ -79,7 +79,7 @@
                     @endforeach
 
 
-                <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="#">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
+                <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.BlockWise.Show',$fishTalikas->slug)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
 
             </div>
         </div>
@@ -103,7 +103,7 @@
                                 <div class="river-fish-div">
                                     <div class="text-center">
                                         <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                                        <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" class="img-fluid" alt="">
+                                        <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" height="250" width="250" alt="">
                                         </a>
                                     </div>
                                     <div class="text-center fish-name-div">
@@ -124,9 +124,7 @@
                                 </div>
                             </div>
                             @endforeach
-
-                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="#">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
-
+                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.BlockWise.Show',$salWaterFishTalikas->slug)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
                         </div>
                     </div>
                 </div>
@@ -140,7 +138,7 @@
                                 <div class="river-fish-div">
                                     <div class="text-center">
                                         <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                                        <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" class="img-fluid" alt="">
+                                        <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" height="250" width="250" alt="">
                                         </a>
                                     </div>
                                     <div class="text-center fish-name-div">
@@ -163,7 +161,7 @@
                             </div>
                             @endforeach
 
-                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="#">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
+                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.BlockWise.Show',$sweetWaterFishTalikas->slug)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
 
                         </div>
                     </div>
@@ -173,4 +171,6 @@
         </div>
     </section>
 
+    @include('frontend.includes.Footer')
 @endsection
+

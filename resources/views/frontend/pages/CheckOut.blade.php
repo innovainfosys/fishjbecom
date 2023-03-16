@@ -3,8 +3,11 @@
 
 @section('content')
     <section class="checkout-section">
+        <form action="{{route('orderConfirm')}}" method="POST">
+            @csrf
         <div class="container">
             <div class="row">
+
 
                 <div class="col-md-6 bill-col-1">
                     <div class="shipping-col-1">
@@ -32,107 +35,47 @@
                     <div class="col-md-6 shipping-col-2">
                     <div class="mb-5"><h1 class="bold">সওদা সমূহঃ</h1></div>
                     <div class="order-summary-wrapper">
-
+                        @foreach($carts as $item)
                       <div class="row">
                         <div class="col-md-2">
                           <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
                         </div>
                         <div class="col-md-8 middle">
                           <div>
-                            <div><p class="bangla-font bill-p-title mb-2 bold">কাতল মাছ</p></div>
-                            <div><p class="bangla-font2 bill-p-pieces">প্যাকেট (৫০০) x ২</p></div>
+                            <div><p class="bangla-font bill-p-title mb-2 bold">{{ $item->product->title }}</p></div>
+                            <div><p class="bangla-font2 bill-p-pieces"> {{$item->variation->weight}} x {{$item->quantity}}</p></div>
                           </div>
                         </div>
                         <div class="col-md-2 middle text-center">
-                          <p class="bangla-font">১,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p>
-                        </div>
-                      </div>
+                          <p class="bangla-font">{{$item->variation->price * $item->quantity}} <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p>
 
-                      <div class="row">
-                        <div class="col-md-2">
-                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-md-8 middle">
-                          <div>
-                            <div><p class="bangla-font bill-p-title mb-2 bold">কাতল মাছ</p></div>
-                            <div><p class="bangla-font2 bill-p-pieces">প্যাকেট (৫০০) x ২</p></div>
-                          </div>
-                        </div>
-                        <div class="col-md-2 middle text-center">
-                          <p class="bangla-font">১,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p>
                         </div>
                       </div>
-
-                      <div class="row">
-                        <div class="col-md-2">
-                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-md-8 middle">
-                          <div>
-                            <div><p class="bangla-font bill-p-title mb-2 bold">কাতল মাছ</p></div>
-                            <div><p class="bangla-font2 bill-p-pieces">প্যাকেট (৫০০) x ২</p></div>
-                          </div>
-                        </div>
-                        <div class="col-md-2 middle text-center">
-                          <p class="bangla-font">১,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-md-2">
-                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-md-8 middle">
-                          <div>
-                            <div><p class="bangla-font bill-p-title mb-2 bold">কাতল মাছ</p></div>
-                            <div><p class="bangla-font2 bill-p-pieces">প্যাকেট (৫০০) x ২</p></div>
-                          </div>
-                        </div>
-                        <div class="col-md-2 middle text-center">
-                          <p class="bangla-font">১,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-md-2">
-                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-md-8 middle">
-                          <div>
-                            <div><p class="bangla-font bill-p-title mb-2 bold">কাতল মাছ</p></div>
-                            <div><p class="bangla-font2 bill-p-pieces">প্যাকেট (৫০০) x ২</p></div>
-                          </div>
-                        </div>
-                        <div class="col-md-2 middle text-center">
-                          <p class="bangla-font">১,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-md-2">
-                          <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-md-8 middle">
-                          <div>
-                            <div><p class="bangla-font bill-p-title mb-2 bold">কাতল মাছ</p></div>
-                            <div><p class="bangla-font2 bill-p-pieces">প্যাকেট (৫০০) x ২</p></div>
-                          </div>
-                        </div>
-                        <div class="col-md-2 middle text-center">
-                          <p class="bangla-font">১,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p>
-                        </div>
-                      </div>
+                        @endforeach
 
                     </div>
 
                     <div class="total-count-div row mt-5">
                       <div class="col-md-10 item-titles"><p class="bold bangla-font">সর্বমোট আইটেমঃ</p></div>
-                      <div class="col-md-2 items-number"><p class="bold bangla-font">১০টি</p></div>
+                      <div class="col-md-2 items-number"><p class="bold bangla-font">{{$carts->count()}}</p></div>
                     </div>
+                        <div class="total-count-div row mt-5">
+                            <div class="col-md-10 item-titles"><p class="bold bangla-font">সর্বমোট প্যাকেটঃ</p></div>
+                            <div class="col-md-2 items-number"><p class="bold bangla-font">{{$carts->sum('quantity')}}</p></div>
+
+                        </div>
+                        <?php
+                        $subTotal = 0;
+                        foreach ($carts as $cart)
+                        {
+                            $subTotal += $cart->variation->price * $cart->quantity;
+                        }
+                        ?>
 
                     <div class="total-count-div row mt-5">
                       <div class="col-md-10 item-titles"><p class="bold bangla-font">সর্বমোট মূল্যঃ </p></div>
-                      <div class="col-md-2 items-price"><p class="bold bangla-font">৬,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p></div>
+                      <div class="col-md-2 items-price"><p class="bold bangla-font">{{$subTotal}} <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p></div>
+                        <input type="hidden" value="{{$subTotal}}" name="subtotal">
                       <button href="#" class="order-submit bangla-font mt-5">অর্ডার কনফার্ম করুন</button>
                     </div>
 
@@ -154,8 +97,9 @@
             <span class="checkbox-spacing"><input class="form-check-input" type="checkbox" value="" id="bkash"></span><span class="bangla-font vertical-center">ভিসা কার্ড/মাস্টার কার্ড <img src="{{asset('frontend/assets/svg/visa.svg')}}" class="bkash-img" alt=""><img src="{{asset('frontend/assets/svg/master.svg')}}" class="bkash-img" alt=""></span>
           </div>
         </div>
-        
+        </form>
+
     </section>
 
-   
-@endsection()
+
+@endsection

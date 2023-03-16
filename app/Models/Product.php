@@ -24,7 +24,7 @@ class Product extends Model
 
     public function variations()
     {
-        return $this->hasMany(Variation::class,'product_id','id');
+        return $this->hasMany(Variation::class, 'product_id', 'id');
     }
     public function getMinWeight()
     {

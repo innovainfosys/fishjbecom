@@ -814,10 +814,13 @@ span.span-btn.price.poppins.add-cart {
     margin-top: 20px;
 }
 
+
 /* product page tablet responsive css code end from here  */
 
 }
-
+label.form-check-label {
+    font-size: 14px;
+}
 
 
 

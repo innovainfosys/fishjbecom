@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\CartController;
+use App\Http\Controllers\Web\ProductController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,14 @@ use App\Http\Controllers\Web\HomeController;
 Route::group(['middleware' => 'cart'], function(){
     Route::get('/', [HomeController::class, 'home'])->name('Home');
     Route::get('/product/{slug}/details', [HomeController::class, 'productSingleView'])->name('Product.Single.View');
+    Route::post('/add/to/cart', [CartController::class, 'addToCart'])->name('Add.To.Cart');
+    Route::get('/cart/count', [CartController::class, 'cartCount'])->name('cartCount');
+
+    Route::get('/checkout', [CheckoutController::class, 'checkoutPage'])->name('checkoutPage');
+    Route::post('/order/confirm', [CheckoutController::class, 'orderConfirm'])->name('orderConfirm');
+
+
+    Route::get('/products/{slug}', [ProductController::class, 'blockWiseProduct'])->name('Product.BlockWise.Show');
 
 
     Route::get('/check-out', function () {

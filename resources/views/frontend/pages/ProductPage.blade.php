@@ -1,6 +1,6 @@
-@include('frontend.includes.Header')
+@extends('frontend.layouts.Master')
 
-
+@section('content')
     <section>
         <div class="container">
             @foreach($product as $row)
@@ -12,17 +12,16 @@
                             <h1 class="bangla-font">{{$row->title}}</h1>
                         </div>
                         <div class="product-image">
-                            <img src="{{asset('frontend/assets/images/new1.jpg')}}" class="img-fluid" id="product-image1" alt="">
-                            <img src="{{asset('frontend/assets/images/b2.png')}}" class="img-fluid big-img" id="product-image2" alt="">
-                            <img src="{{asset('frontend/assets/images/b3.png')}}" class="img-fluid  big-img" id="product-image3" alt="">
-                            <img src="{{asset('frontend/assets/images/b4.png')}}" class="img-fluid big-img" id="product-image4" alt="">
-
+                            <img src="{{asset('uploads/images/products/'.$row->featured_image)}}" class="img-fluid" id="product-image1" alt="">
+                            @foreach($row->productImages as $image)
+                            <img src="{{asset('uploads/images/products/'.$image->image)}}" class="img-fluid big-img" id="product-image2" alt="">
+                            @endforeach
 
                             <div class="row mt-2 owl-carousel owl-theme">
-                                <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/new1.jpg')}}" onclick="galleryItem1()" class="img-fluid gallery-images" alt=""></div>
-                                <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/b2.png')}}" onclick="galleryItem2()" class="img-fluid gallery-images" alt=""></div>
-                                <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/b3.png')}}" onclick="galleryItem3()" class="img-fluid gallery-images" alt=""></div>
-                                <div class="col-md-3 item"><img src="{{asset('frontend/assets/images/b4.png')}}" onclick="galleryItem4()" class="img-fluid gallery-images" alt=""></div>
+                                @foreach($row->productImages as $image)
+                                <div class="col-md-3 item"><img src="{{asset('uploads/images/products/'.$image->image)}}" onclick="galleryItem{{$loop->iteration}}()" class="img-fluid gallery-images" alt=""></div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
@@ -35,19 +34,24 @@
                         <div class="billing-title">
                             <h1 class="bangla-font">বিলিং</h1>
                         </div>
-
+                        <form action="{{route('Add.To.Cart')}}" method="POST">
+                            @csrf
                         <div class="price-wrapper mt-5">
                             <div class="row">
-                                <form></form>
+
                                 @foreach($row->variations as $variation)
                                 <div class="col-md-4 mb-4 productWeight">
                                     <p class="mb-2 bold pack-1">প্যাকেটের পরিমাণ</p>
                                     <div class="billing-col" id="billCol">
                                         <div class="billing-weight-wrapper mb-4"><p><span class="bold">পরিমাণঃ </span>{{$variation->weight}}</p></div>
                                         <div class="billing-price-wrapper mb-4"><p><span class="bold">মূল্যঃ </span>{{$variation->price}}</p></div>
-                                            <label for="radio-inline control-label">নির্বাচন করুন
-                                            <input type="radio" name="packet" value="{{$variation->id}}">
+                                        <input type="hidden" name="product_id" value="{{$row->id}}">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="variation_id"  value="{{$variation->id}}" required >
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                নির্বাচন করুন
                                             </label>
+                                        </div>
                                         {{--                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectBTN" onclick="billSelect()"><a href="">নির্বাচন করুন</a></p></div>--}}
 {{--                                        <div class="billing-select-btn text-center bangla-font"><p id="billSelectedBTN"><a href="">নির্বাচিত</a></p></div>--}}
                                     </div>
@@ -58,19 +62,18 @@
                         </div>
 
 
-
                         <div class="packet-pieces-wrap wrap">
                                 <p class="mb-3 bold">প্যাকেটের সংখ্যা</p>
                         <button type="button" id="sub" class="sub">-</button>
-                        <input class="count" type="text" id="1" value="1" min="1" max="100" />
+                        <input class="count" name="quantity" type="text" id="1" value="1" min="1" max="100" />
                         <button type="button" id="add" class="add">+</button>
 
-                        <div class="mt-4 price-input">
-                            <span class="bold">মূল্যঃ </span><input type="text" value="">
+{{--                        <div class="mt-4 price-input">--}}
+{{--                            <span class="bold">মূল্যঃ </span><input type="text"  value="">--}}
+{{--                        </div>--}}
+                            <button type="submit" class="span-btn price poppins river-add-cart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
                         </div>
-
-                        </div>
-
+                        </form>
 
                     </div>
                 </div>
@@ -85,6 +88,10 @@
 
         </div>
     </section>
+    @include('frontend.includes.ProductPageFooter')
+
+@endsection
+@section('scripts')
 
     <script>
 
@@ -188,11 +195,9 @@
     </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- owl carousel js and jquery link  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 
@@ -217,5 +222,6 @@
   })
     </script>
 
-@include('frontend.includes.ProductPageFooter')
+@endsection
+
 

@@ -109,7 +109,7 @@
                     <div class="row">
                        <div class="col-md-12 footer-regards-text">
                         <p>আপনার পণ্যটি ডেলিভারি হওয়ার পূর্বে আমরা আপনাকে নিশ্চিতকরণ বার্তা পাঠাবো</p>
-                        <p>ধন্যবাদান্তে, </br>কিবরিয়া</p> 
+                        <p>ধন্যবাদান্তে, </br>কিবরিয়া</p>
                        </div>
                     </div>
                 </div>
@@ -135,4 +135,4 @@
         <button class="print-btn bangla-font" onclick="window.print()">প্রিন্ট করুন!</button>
     </div>
 </section>
-@endsection()
+@endsection
