@@ -66,14 +66,6 @@
 
                 <div class="total-count-div row mt-5">
                   <div class="col-md-10 item-titles"><p class="bold bangla-font">সর্বমোট মূল্যঃ </p></div>
-<<<<<<< HEAD
-                  <div class="col-md-2 items-price"><p class="bold bangla-font">৬,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p></div>
-                  <div class="cart-button-wrapper ">
-                    <span><button href="#" class="order-submit bangla-font mt-5">আরও শপিং করুন</button></span>
-                    <span><button href="#" class="order-submit bangla-font mt-5">আপডেট</button></span>
-                    <span><button href="#" class="order-submit bangla-font mt-5">চেকআউট পেজে যান</button></span>
-                  </div>
-=======
                     <?php
                     $subTotal = 0;
                     foreach ($carts as $cart)
@@ -83,7 +75,6 @@
                     ?>
                   <div class="col-md-2 items-price"><p class="bold bangla-font">{{$subTotal}} <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p></div>
                   <a href="{{route('checkoutPage')}}" class="btn btn-outline-success btn-sm order-submit bangla-font mt-5">চেকআউট পেজে যান</a>
->>>>>>> 1b6a8bc02f7ad919c8c0847eb185cc37b47ada68
                 </div>
 
             </div>
