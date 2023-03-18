@@ -23,13 +23,16 @@ Route::group(['middleware' => 'cart'], function(){
     Route::get('/', [HomeController::class, 'home'])->name('Home');
     Route::get('/product/{slug}/details', [HomeController::class, 'productSingleView'])->name('Product.Single.View');
     Route::post('/add/to/cart', [CartController::class, 'addToCart'])->name('Add.To.Cart');
+    Route::post('/ajax/cart', [CartController::class, 'ajaxCart'])->name('AjaxCart');
     Route::get('/cart/count', [CartController::class, 'cartCount'])->name('cartCount');
+    Route::get('/carts', [CartController::class, 'cartPage'])->name('cartPage');
 
     Route::get('/checkout', [CheckoutController::class, 'checkoutPage'])->name('checkoutPage');
     Route::post('/order/confirm', [CheckoutController::class, 'orderConfirm'])->name('orderConfirm');
 
 
     Route::get('/products/{slug}', [ProductController::class, 'blockWiseProduct'])->name('Product.BlockWise.Show');
+    Route::get('all/product/show', [ProductController::class, 'showAllProduct'])->name('All.Product');
 
 
     Route::get('/check-out', function () {
