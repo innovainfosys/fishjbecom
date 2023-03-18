@@ -151,7 +151,11 @@
                 <div class="total-count-div row mt-5">
                   <div class="col-md-10 item-titles"><p class="bold bangla-font">সর্বমোট মূল্যঃ </p></div>
                   <div class="col-md-2 items-price"><p class="bold bangla-font">৬,০০০ <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p></div>
-                  <button href="#" class="order-submit bangla-font mt-5">চেকআউট পেজে যান</button>
+                  <div class="cart-button-wrapper ">
+                    <span><button href="#" class="order-submit bangla-font mt-5">আরও শপিং করুন</button></span>
+                    <span><button href="#" class="order-submit bangla-font mt-5">আপডেট</button></span>
+                    <span><button href="#" class="order-submit bangla-font mt-5">চেকআউট পেজে যান</button></span>
+                  </div>
                 </div>
 
             </div>

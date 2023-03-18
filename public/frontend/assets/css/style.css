@@ -811,6 +811,9 @@ h5#exampleModalLabel {
         padding: 0px 3px;
         margin: 0!important;
     }
+    button.order-submit.mt-5 {
+        padding: 7px;
+    }
 
     /* mobile cart page responsive code end from here */
 
@@ -882,6 +885,10 @@ label.form-check-label {
 .cart-trash-btn a i {
     color: red;
     font-size: 16px;
+}
+.cart-button-wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* cart page css code end from here */
