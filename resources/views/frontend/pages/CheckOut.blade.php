@@ -7,15 +7,13 @@
             @csrf
         <div class="container">
             <div class="row">
-
-
                 <div class="col-md-6 bill-col-1">
                     <div class="shipping-col-1">
                       <div class="mb-5"><h1 class="bold">প্রেরণের ঠিকানাঃ</h1></div>
-                      <div class="first-name mb-4"><label>পূর্ণনাম</label><input type="text" required="required" placeholder="আবশ্যিক" name="" id=""></div>
-                      <div class="number mb-4"><label>মোবাইল</label><input type="number" required="required" placeholder="আবশ্যিক" name="" id=""></div>
-                      <div class="address mb-4"><label>ঠিকানা</label><input type="text" required="required" placeholder="আবশ্যিক" name="" id=""></div>
-                      <div class="email mb-4"><label>ইমেইল</label><input type="email"  placeholder="বাধ্যতামূলক নয়" name="" id=""></div>
+                      <div class="first-name mb-4"><label>পূর্ণনাম</label><input type="text" required="required" placeholder="আবশ্যিক" name="name" id=""></div>
+                      <div class="number mb-4"><label>মোবাইল</label><input type="number" required="required" placeholder="আবশ্যিক" name="phone" id=""></div>
+                      <div class="address mb-4"><label>ঠিকানা</label><input type="text" required="required" placeholder="আবশ্যিক" name="address" id=""></div>
+                      <div class="email mb-4"><label>ইমেইল</label><input type="email"  placeholder="বাধ্যতামূলক নয়" name="email" id=""></div>
                     </div>
                     <div class="shipping-col-1 mt-5 desktop-payment">
                       <div class="mb-5"><h1 class="bold">পেমেন্টঃ</h1></div>
@@ -55,10 +53,6 @@
 
                     </div>
 
-                    <div class="total-count-div row mt-5">
-                      <div class="col-md-10 item-titles"><p class="bold bangla-font">সর্বমোট আইটেমঃ</p></div>
-                      <div class="col-md-2 items-number"><p class="bold bangla-font">{{$carts->count()}}</p></div>
-                    </div>
                         <div class="total-count-div row mt-5">
                             <div class="col-md-10 item-titles"><p class="bold bangla-font">সর্বমোট প্যাকেটঃ</p></div>
                             <div class="col-md-2 items-number"><p class="bold bangla-font">{{$carts->sum('quantity')}}</p></div>

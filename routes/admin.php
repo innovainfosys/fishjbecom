@@ -6,8 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\HomeBlockController;
-
-
+use App\Http\Controllers\Admin\OrderController;
 
 
 
@@ -44,6 +43,10 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     Route::get('home/section/product/add/{id}', [HomeBlockController::class, 'sectionProductAdd'])->name('Home.Page.Section.Product.Add');
     Route::post('home/section/product/add/{id}', [HomeBlockController::class, 'sectionProductAddProcess'])->name('Home.Page.Section.Product.Add.Process');
     Route::get('home/section/product/delete/{id}', [HomeBlockController::class,'removeSectionProduct'])->name('Home.Page.Section.Product.delete.Process');
+
+    //order
+
+    Route::get('orders', [OrderController::class, 'orderIndex'])->name('Order.Index');
 
 
 });

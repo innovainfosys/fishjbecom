@@ -21,7 +21,6 @@
                                 @foreach($row->productImages as $image)
                                 <div class="col-md-3 item"><img src="{{asset('uploads/images/products/'.$image->image)}}" onclick="galleryItem{{$loop->iteration}}()" class="img-fluid gallery-images" alt=""></div>
                                 @endforeach
-
                             </div>
                         </div>
                     </div>

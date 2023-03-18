@@ -50,7 +50,7 @@
                 <div class="lr-padding"><p class="bangla-font">মোবাইলঃ ০১৮৬১১৮১৫৯৫</p></div>
                 <div><a href="#"><i class="fa-brands fa-facebook-f lr-padding"></i></a></div>
                 <div><button class="log-btn bangla-font">লগ ইন</button></div>
-                <div><button class="bangla-font cart-btn">আমার সওদা<i class="cart fa-solid fa-cart-shopping"></i> <span class="cart-count"></span> </button></div>
+                <div><a href="{{route('cartPage')}}" class="btn btn-sm btn-success bangla-font cart-btn">আমার সওদা<i class="cart fa-solid fa-cart-shopping"></i> <span class="cart-count"></span> </a></div>
             </div>
 
            </div>
