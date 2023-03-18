@@ -12,8 +12,11 @@ class OrderController extends Controller
    {
        $orders = Order::with('orderDetails', 'customer')->get();
 
-       dd($orders);
+       return view('admin.order.index', ['orders' => $orders]);
+   }
 
-       return view('admin.order.index');
+   public function orderView($id)
+   {
+
    }
 }

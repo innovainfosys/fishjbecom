@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('delivery_status', ['Pending', 'Processing', 'Shipped', 'Received', 'Delivered'])->default('Pending');
             $table->enum('payment_status', ['Pending', 'Paid'])->default('Pending');
             $table->enum('payment_type', ['Cash On Delivery', 'Online'])->default('Cash On Delivery');
+            $table->string('shipping_address');
             $table->timestamps();
         });
     }

@@ -32,6 +32,7 @@ class CheckoutController extends Controller
             $order->order_number = mt_rand(1000000000, 9999999999);
             $order->subtotal = $request->subtotal;
             $order->customer_id = $customerExists->id;
+            $order->shipping_address = $request->address;
             $order->save();
 
             foreach ($carts as $cart)
@@ -62,6 +63,7 @@ class CheckoutController extends Controller
             $order->order_number = mt_rand(1000000000, 9999999999);
             $order->subtotal = $request->subtotal;
             $order->customer_id = $customer->id;
+            $order->shipping_address = $request->address;
             $order->save();
 
             foreach ($carts as $cart)

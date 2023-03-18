@@ -9,35 +9,28 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Products</h5>
+                        <h5 class="card-title">All Orders</h5>
                         <table class="table table-hover">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Categories</th>
-                                <th scope="col">Variations</th>
+                                <th scope="col">Order Number</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($products as $product)
+                            @foreach($orders as $order)
                                 <tr>
                                     <th scope="row">{{$loop->iteration}}</th>
-                                    <td>{{$product->title}}</td>
-                                    <td>{{$product->categories->name}}</td>
+                                    <td>{{$order->order_number}}</td>
+                                    <td>{{$order->created_at->format('d-m-Y')}}</td>
+                                    <td>{{$order->subtotal}}</td>
+                                    <td>{{$order->status}}</td>
                                     <td>
-                                        @foreach($product->variations as $value)
-
-                                            <span> <b>Weight: {{$value->weight}}</b></span>
-                                            <span> <b>price: </b></span>{{$value->price}}tk
-                                            <span> <b>Instock :</b></span>{{$value->quantity}}
-                                            <br>
-                                        @endforeach
-                                    </td>
-                                    <td>
-                                        <a href="{{route('edit.product',$product->id)}}"  class="edit btn btn-info btn-sm"> <i class="ri  ri-edit-2-fill"> </i> </a>
-                                        <a href="javascript:void(0)"  data-id="{{$product->id}}" class="delete btn btn-danger btn-sm"> <i class="ri ri-delete-bin-6-line"> </i> </a>
+                                        <a href="javascript:void(0)"  data-id="" class="delete btn btn-info btn-sm"> <i class="ri ri-eye-fill"> </i> </a>
                                     </td>
 
                                 </tr>

@@ -13,230 +13,13 @@
 
     <!-- fish list section start from here -->
 
-    <section class="fish-list-section">
-        <div class="container">
-            <div class="row">
-                <h1 class="section-heading bangla-font">{{$fishTalikas->title}}</h1>
-                @foreach($fishTalikas->items as $item)
-                <div class="col-md-6 fish-col">
-                    <div class="fish-div">
-                        <div class="text-center">
-                            <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                            <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" height="250" width="250" alt="">
-                            </a>
-                        </div>
-                        <div class="text-center fish-name-div">
-                            <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                            <h5 class="fish-name bangla-font">{{$item->product->title}}</h5>
-                            </a>
-                        </div>
-                        <div class="text-center">
-                            <span class="span-btn weight bangla-font"><i class="fa-solid fa-scale-balanced"></i>   <i class="fa-solid fa-less-than"></i>
-                                @if($item->product->getMinWeight() >= 1000)
-                                    {{$item->product->getMinWeight()/1000}}kg
-                                @else
-                                    {{$item->product->getMinWeight()}}gm
-                                 @endif
-                                </span>
-                            <span class="span-btn price bangla-font"><i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i> {{$item->product->getMinPrice()}}</span>
-                            <span
-                                class="span-btn price poppins add-cart"
-                                data-toggle="modal"
-                                data-target="#exampleModal{{$item->id}}"
-                            >
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
-                            </span>
-
-
-
-                            {{-- modal start here   --}}
-
-                            <!-- Modal -->
-                            <div class="modal fade selectModal" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title bold" id="exampleModalLabel">প্যাকেট নির্বাচন করুন</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-
-                                    <div class="modal-div-wrapper">
-                                        <label >প্যাকেট নির্বাচন করুন</label>
-                                        <select name="variation_id" id="variation_id">
-                                           @foreach($item->product->variations as $variation)
-                                                <option value="{{$variation->id}}"> @if($variation->weight >= 1000){{$variation->weight/1000}} Kg @else{{$variation->weight}} gm @endif {{$variation->price}} Taka</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="sumbit" class="btn btn-md btn-success cartBtn" >Confirm</button>
-                                    <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-
-                            {{-- modal end here   --}}
-
-                        </div>
-                    </div>
-                </div>
-                    @endforeach
-
-
-                <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('All.Product')}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
-
-            </div>
-        </div>
-        </div>
-    </section>
+   @include('frontend.pages.FishTalika')
 
     <!-- fish list section end from here -->
 
     <!-- 2 categories fish section code start from here -->
 
-    <section class="fish-list-section">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-6 sea-fish-col river-fish-col">
-                    <div class="row">
-                        <div class="row">
-                            <h1 class="section-heading bangla-font">{{$salWaterFishTalikas->title}}</h1>
-                            @foreach($salWaterFishTalikas->items as $item)
-                            <div class="col-md-6">
-                                <div class="river-fish-div">
-                                    <div class="text-center">
-                                        <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                                        <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" height="250" width="250" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="text-center fish-name-div">
-                                        <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                                            <h5 class="fish-name bangla-font">{{$item->product->title}}</h5>
-                                        </a>
-                                    </div>
-                                    <div class="text-center">
-                                        <span class="span-btn weight bangla-font"><i class="fa-solid fa-scale-balanced"></i>
-                                            @if($item->product->getMinWeight() >= 1000)
-                                                {{$item->product->getMinWeight()/1000}}kg
-                                            @else
-                                                {{$item->product->getMinWeight()}}gm
-                                            @endif </span>
-                                        <span class="span-btn price bangla-font"><i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i> {{$item->product->getMinPrice()}}</span>
-                                        <p class="span-btn price poppins river-add-cart" data-toggle="modal" data-target="#exampleModal{{$item->id}}"><a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a></p>
-
-                                        <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title bold" id="exampleModalLabel">প্যাকেট নির্বাচন করুন</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="modal-div-wrapper">
-                                                            <select name="" id="">
-                                                                <option value="">প্যাকেট নির্বাচন করুন</option>
-                                                                @foreach($item->product->variations as $variation)
-                                                                    <option value=""> {{$variation->weight}} gm {{$variation->price}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-md btn-success cart-btn">Done</button>
-                                                        <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.BlockWise.Show',$salWaterFishTalikas->slug)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 river-fish-col-2  river-fish-col">
-                    <div class="row">
-                        <div class="row">
-                            <h1 class="section-heading bangla-font">{{$sweetWaterFishTalikas->title}}</h1>
-                            @foreach($sweetWaterFishTalikas->items as $item)
-                            <div class="col-md-6">
-                                <div class="river-fish-div">
-                                    <div class="text-center">
-                                        <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                                        <img src="{{asset('uploads/images/products/'.$item->product->featured_image)}}" height="250" width="250" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="text-center fish-name-div">
-                                        <a href="{{route('Product.Single.View', $item->product->slug)}}">
-                                        <h5 class="fish-name bangla-font">{{$item->product->title}}</h5>
-                                        </a>
-                                    </div>
-                                    <div class="text-center">
-                                        <span class="span-btn weight bangla-font"><i class="fa-solid fa-scale-balanced"></i>
-                                            @if($item->product->getMinWeight() >= 1000)
-                                                {{$item->product->getMinWeight()/1000}}kg
-                                            @else
-                                                {{$item->product->getMinWeight()}}gm
-                                            @endif
-                                            </span>
-                                        <span class="span-btn price bangla-font"><i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i> ২,০০০</span>
-                                        <p class="span-btn price poppins river-add-cart" data-toggle="modal" data-target="#exampleModal{{$item->id}}"><a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a></p>
-                                        <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title bold" id="exampleModalLabel">প্যাকেট নির্বাচন করুন</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="modal-div-wrapper">
-                                                            <input type="hidden" id="product_id" name="product_id" value="{{$item->product->id}}">
-                                                            <select name="variation_id" id="variation_id">
-                                                                <option value="">প্যাকেট নির্বাচন করুন</option>
-                                                                @foreach($item->product->variations as $variation)
-                                                                    <option value="{{$variation->id}}"> {{$variation->weight}} gm {{$variation->price}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-md btn-success">Done</button>
-                                                        <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-
-                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.BlockWise.Show',$sweetWaterFishTalikas->slug)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
+   @include('frontend.pages.CategoryProduct');
 
     @include('frontend.includes.Footer')
 @endsection
@@ -249,22 +32,32 @@
             }
         });
         $(document).ready(function () {
+            const clg = console.log;
+            /* $('.variationOptionSelector').click(function(e){
+                clg('Clicked Variation Option: ' + this)
+            }) */
+
+
+
             $('.cartBtn').click(function (e) {
                 e.preventDefault();
-                var product_id = $('#product_id').val();
-                var variation_id = $('#variation_id').val();
+                // clg(this)
+                const productId = $(this).attr("data-productid")
+                const variationId = $(`#variation_id_${productId}`).val();
+
 
                 $.ajax({
                     method: "POST",
                     url:  "{{route('AjaxCart')}}",
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        'product_id' : product_id,
-                        'variation_id' : variation_id,
+                        'product_id' : productId,
+                        'variation_id' : variationId,
                     },
 
                     success:function (response) {
-                        $('.selectModal').modal('hide');
+                        alert(response.status);
+                        $('.productModal').modal('hide');
                     }
 
                 });
