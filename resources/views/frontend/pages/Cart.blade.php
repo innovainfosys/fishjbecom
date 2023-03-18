@@ -4,7 +4,7 @@
 
 <section>
     <div class="container">
-        @if(isset($cart))
+        @if(isset($carts))
         <div class="row">
             <div class="col-md-12 bill-col-2">
                 <div class="col-md-6 shipping-col-2">

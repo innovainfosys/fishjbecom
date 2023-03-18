@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function showAllProduct()
     {
-        $products = Product::where('status', 'Active')->paginate(2);
+        $products = Product::where('status', 'Active')->paginate(6);
         return view('frontend.pages.Shop', ['products' => $products]);
     }
     public function blockWiseProduct($slug)
