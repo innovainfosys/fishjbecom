@@ -49,6 +49,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
 
@@ -103,7 +105,53 @@
 
         });
     });
-</script>
 
+
+
+</script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $(document).ready(function () {
+        const clg = console.log;
+        /* $('.variationOptionSelector').click(function(e){
+            clg('Clicked Variation Option: ' + this)
+        }) */
+
+        $('.cartBtn').click(function (e) {
+            e.preventDefault();
+            // clg(this)
+            const productId = $(this).attr("data-productid")
+            console.log(productId);
+            const variationId = $(`#variation_id_${productId}`).val();
+            console.log(variationId);
+            $.ajax({
+                method: "POST",
+                url:  "{{route('AjaxCart')}}",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    'product_id' : productId,
+                    'variation_id' : variationId,
+                },
+
+                success:function (response) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Cart Added Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+
+            });
+
+        });
+
+    });
+</script>
   </body>
 </html>

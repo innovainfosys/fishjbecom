@@ -108,24 +108,24 @@
 
 
     </div>
-    <div class="col-5">
-        <div class="card">
-            <div class="card-body">
-                <h3>Order Confirmation</h3>
-                <form action="" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <select name="status" class="form-select  form-select-lg mb-3">
-                            <option value="Pending" @if($orders->first()->status == 'Pending') selected @endif>Pending</option>
-                            <option value="Approved" @if($orders->first()->status == 'Approved') selected @endif>Approved</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+{{--    <div class="col-5">--}}
+{{--        <div class="card">--}}
+{{--            <div class="card-body">--}}
+{{--                <h3>Order Confirmation</h3>--}}
+{{--                <form action="" method="POST">--}}
+{{--                    @csrf--}}
+{{--                    <div class="mb-3">--}}
+{{--                        <select name="status" class="form-select  form-select-lg mb-3">--}}
+{{--                            <option value="Pending" @if($orders->first()->status == 'Pending') selected @endif>Pending</option>--}}
+{{--                            <option value="Approved" @if($orders->first()->status == 'Approved') selected @endif>Approved</option>--}}
+{{--                        </select>--}}
+{{--                        <button type="submit" class="btn btn-primary">Submit</button>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
 
-            </div>
-        </div>
-    </div>
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 </div>
 @endsection

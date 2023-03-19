@@ -25,42 +25,5 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $(document).ready(function () {
-            const clg = console.log;
-            /* $('.variationOptionSelector').click(function(e){
-                clg('Clicked Variation Option: ' + this)
-            }) */
 
-            $('.cartBtn').click(function (e) {
-                e.preventDefault();
-                // clg(this)
-                const productId = $(this).attr("data-productid")
-                console.log(productId);
-                const variationId = $(`#variation_id_${productId}`).val();
-                console.log(variationId);
-                $.ajax({
-                    method: "POST",
-                    url:  "{{route('AjaxCart')}}",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        'product_id' : productId,
-                        'variation_id' : variationId,
-                    },
-
-                    success:function (response) {
-                        toastr.success(response.status);
-                    }
-
-                });
-
-            });
-
-        });
-    </script>
 @endsection
