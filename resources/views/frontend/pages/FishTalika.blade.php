@@ -50,7 +50,7 @@
 
                                     <div class="modal-div-wrapper">
                                         <label >প্যাকেট নির্বাচন করুন</label>
-                                        <select name="variation_id" id="variation_id_{{$item->id}}" class="variationOptionSelector">
+                                        <select name="variation_id" id="variation_id_{{$item->product->id}}" class="variationOptionSelector">
                                            @foreach($item->product->variations as $variation)
                                                 <option  value="{{$variation->id}}"> @if($variation->weight >= 1000){{$variation->weight/1000}} Kg @else{{$variation->weight}} gm @endif {{$variation->price}} Taka</option>
                                             @endforeach
@@ -58,7 +58,7 @@
                                     </div>
                                     </div>
                                     <div class="modal-footer">
-                                    <button type="sumbit" class="btn btn-md btn-success cartBtn" data-productid="{{$item->id}}">Confirm</button>
+                                    <button type="sumbit" class="btn btn-md btn-success cartBtn" data-productid="{{$item->product->id}}">Confirm</button>
                                     <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancel</button>
                                     </div>
                                 </div>

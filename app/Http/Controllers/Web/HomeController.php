@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\HomeBlock;
 use App\Models\HomeBlockProducts;
 use App\Models\Product;
@@ -17,11 +18,16 @@ class HomeController extends Controller
         $saltWaterFishTalikas = $homeBlocks[1];
         $sweetWaterFishTalikas = $homeBlocks[2];
 
+        $saltWaterFishCategory = Category::where('id', 4)->first();
+        $sweetWaterFishCategory = Category::where('id', 5)->first();
+
 
         return view('frontend.pages.Home', [
             'fishTalikas' => $fishTalikas,
             'sweetWaterFishTalikas' => $sweetWaterFishTalikas,
             'salWaterFishTalikas' => $saltWaterFishTalikas,
+            'saltWaterFishCategory' => $saltWaterFishCategory,
+            'sweetWaterFishCategory' => $sweetWaterFishCategory
             ]);
     }
 

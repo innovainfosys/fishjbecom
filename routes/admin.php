@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     //order
 
     Route::get('orders', [OrderController::class, 'orderIndex'])->name('Order.Index');
+    Route::get('order/view/{id}', [OrderController::class, 'OrderView'])->name('Order.View');
 
 
 });

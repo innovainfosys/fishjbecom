@@ -41,7 +41,7 @@
                                                     <div class="modal-body">
                                                         <div class="modal-div-wrapper">
                                                             <label >প্যাকেট নির্বাচন করুন</label>
-                                                            <select name="variation_id" id="variation_id_{{$item->id}}" class="variationOptionSelector">
+                                                            <select name="variation_id" id="variation_id_{{$item->product->id}}" class="variationOptionSelector">
                                                                 @foreach($item->product->variations as $variation)
                                                                     <option value="{{$variation->id}}"> {{$variation->weight}} gm {{$variation->price}}</option>
                                                                 @endforeach
@@ -49,7 +49,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-md btn-success cartBtn"  data-productid="{{$item->id}}" >Done</button>
+                                                        <button type="submit" class="btn btn-md btn-success cartBtn"  data-productid="{{$item->product->id}}" >Done</button>
                                                         <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancel</button>
                                                     </div>
                                                 </div>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             @endforeach
-                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.BlockWise.Show',$salWaterFishTalikas->slug)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
+                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.CategoryWise.Show',$saltWaterFishCategory->id)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
 
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                                         <div class="modal-div-wrapper">
                                                             <input type="hidden" class="product_id" name="product_id" value="{{$item->product->id}}">
                                                             <label >প্যাকেট নির্বাচন করুন</label>
-                                                            <select name="variation_id" id="variation_id_{{$item->id}}" class="variationOptionSelector">
+                                                            <select name="variation_id" id="variation_id_{{$item->product->id}}" class="variationOptionSelector">
                                                                 @foreach($item->product->variations as $variation)
                                                                     <option value="{{$variation->id}}"> {{$variation->weight}} gm {{$variation->price}}</option>
                                                                 @endforeach
@@ -113,7 +113,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-md btn-success cartBtn" data-productid="{{$item->id}}">Done</button>
+                                                        <button type="submit" class="btn btn-md btn-success cartBtn" data-productid="{{$item->product->id}}">Done</button>
                                                         <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancel</button>
                                                     </div>
                                                 </div>
@@ -127,7 +127,7 @@
                             </div>
                             @endforeach
 
-                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.BlockWise.Show',$sweetWaterFishTalikas->slug)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
+                            <div class="text-center"><button class="bangla-font cart-btn see-more-fish"><a href="{{route('Product.CategoryWise.Show',$sweetWaterFishCategory->id)}}">আরও দেখুন</a><i class="cart fa-solid fa-fish-fins"></i></button></div>
 
                         </div>
                     </div>

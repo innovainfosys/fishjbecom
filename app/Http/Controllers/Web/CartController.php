@@ -76,4 +76,23 @@ class CartController extends Controller
         return view('frontend.pages.Cart', ['carts' => $carts]);
     }
 
+    public function updateCart(Request $request)
+    {
+        foreach ($request->id as $key => $value) {
+            $data = array(
+                'quantity'=>$request->quantity[$key],
+            );
+            Cart::where('id',$request->id[$key])
+                ->update($data);
+        }
+        return redirect()->back()->with('success', 'cart quantity updated successfully');
+    }
+
+    public function cartDelete($id)
+    {
+        $cart = Cart::find($id);
+        $cart->delete();
+        return redirect()->back();
+    }
+
 }

@@ -37,15 +37,13 @@
                 clg('Clicked Variation Option: ' + this)
             }) */
 
-
-
             $('.cartBtn').click(function (e) {
                 e.preventDefault();
                 // clg(this)
                 const productId = $(this).attr("data-productid")
+                console.log(productId);
                 const variationId = $(`#variation_id_${productId}`).val();
-
-
+                console.log(variationId);
                 $.ajax({
                     method: "POST",
                     url:  "{{route('AjaxCart')}}",
@@ -56,8 +54,7 @@
                     },
 
                     success:function (response) {
-                        alert(response.status);
-                        $('.productModal').modal('hide');
+                        toastr.success(response.status);
                     }
 
                 });

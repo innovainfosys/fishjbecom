@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    {{'Attribute'}}
+    {{'Orders'}}
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@
                                     <td>{{$order->subtotal}}</td>
                                     <td>{{$order->status}}</td>
                                     <td>
-                                        <a href="javascript:void(0)"  data-id="" class="delete btn btn-info btn-sm"> <i class="ri ri-eye-fill"> </i> </a>
+                                        <a href="{{route('Order.View', $order->id)}}"  data-id="" class="delete btn btn-info btn-sm"> <i class="ri ri-eye-fill"> </i> </a>
                                     </td>
 
                                 </tr>

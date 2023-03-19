@@ -17,6 +17,8 @@ class OrderController extends Controller
 
    public function orderView($id)
    {
+       $orders = Order::with('orderDetails', 'customer')->where('id', $id)->get();
+       return view('admin.order.OrderView', ['orders' => $orders]);
 
    }
 }

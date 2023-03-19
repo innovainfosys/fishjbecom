@@ -5,7 +5,9 @@ body{
 }
 a{
     text-decoration: none!important;
-    color: black;
+}
+a:hover{
+    text-decoration: none!important;
 }
 p{
     margin-bottom: 0;
@@ -433,12 +435,12 @@ button.order-submit.mt-5 {
     color: #ffffff;
     transition:0.4s;
 }
-button.order-submit.mt-5:hover {
-    border: 2px solid #111;
-    background: #ffffff;
-    color: #111111;
-    transition:0.4s;
-}
+/*button.order-submit.mt-5:hover {*/
+/*    border: 2px solid #111;*/
+/*    background: #ffffff;*/
+/*    color: #111111;*/
+/*    transition:0.4s;*/
+/*}*/
 .bkash-img {
     max-width: 12%!important;
     height: auto;
@@ -584,6 +586,10 @@ h5#exampleModalLabel {
 @media (min-width: 320px) and (max-width: 767px) {
 
     /* mobile home page responsive code start from here  */
+
+    .text-center.fish-name-div a {
+        color: #000000;
+    }
 
     .fish-col:nth-child(even) {
         padding-right: 15px!important;
@@ -890,6 +896,12 @@ label.form-check-label {
     display: flex;
     justify-content: space-between;
 }
+.cart-bottom-three-btn {
+    color: #fff;
+}
+/*.cart-bottom-three-btn:hover {*/
+/*    color: #000000;*/
+/*}*/
 
 /* cart page css code end from here */
 
