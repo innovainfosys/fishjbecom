@@ -899,6 +899,9 @@ label.form-check-label {
 .cart-bottom-three-btn {
     color: #fff;
 }
+button.order-submit.bangla-font.mt-5 a:hover {
+    color: #fff;
+}
 /*.cart-bottom-three-btn:hover {*/
 /*    color: #000000;*/
 /*}*/
