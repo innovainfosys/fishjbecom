@@ -57,6 +57,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Product Name </th>
+                                <th>Weight</th>
                                 <th>Details</th>
                                 <th>Price </th>
                                 <th>Total</th>
@@ -67,6 +68,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$orderDetail->product->title}}</td>
+                                    <td>{{$orderDetail->variation->weight}}</td>
                                     <td>Quantity: {{$orderDetail->quantity}}</td>
                                     <td>{{$orderDetail->unit_price}}</td>
                                     <td>{{$orderDetail->unit_price * $orderDetail->quantity }}</td>

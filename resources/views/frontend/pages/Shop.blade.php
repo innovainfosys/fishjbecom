@@ -30,7 +30,42 @@
                                @endif
                                 </span>
                                     <span class="span-btn price bangla-font"><i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i> {{$product->getMinPrice()}}</span>
-                                    <p class="span-btn price poppins add-cart river-add-cart" data-toggle="modal" data-target="#exampleModal"><a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a></p>
+                                    <span
+                                        class="span-btn price poppins add-cart"
+                                        data-toggle="modal"
+                                        data-target="#exampleModal{{$product->id}}"
+                                    >
+                                <a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
+                                    </span>
+
+                                    <div class="modal fade productModal" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title bold" id="exampleModalLabel">প্যাকেট নির্বাচন করুন</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <div class="modal-div-wrapper">
+                                                        <label >প্যাকেট নির্বাচন করুন</label>
+                                                        <select name="variation_id" id="variation_id_{{$product->id}}" class="variationOptionSelector">
+                                                            @foreach($product->variations as $variation)
+                                                                <option  value="{{$variation->id}}"> @if($variation->weight >= 1000){{$variation->weight/1000}} Kg @else{{$variation->weight}} gm @endif {{$variation->price}} Taka</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="sumbit" class="btn btn-md btn-success cartBtn" data-productid="{{$product->id}}">Confirm</button>
+                                                    <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

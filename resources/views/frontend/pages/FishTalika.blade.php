@@ -32,11 +32,6 @@
                                 <a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
                             </span>
 
-
-
-                            {{-- modal start here   --}}
-
-                            <!-- Modal -->
                             <div class="modal fade productModal" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">

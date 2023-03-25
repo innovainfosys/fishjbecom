@@ -30,7 +30,7 @@
                                @endif
                                 </span>
                         <span class="span-btn price bangla-font"><i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i> {{$item->getMinPrice()}}</span>
-                        <p class="span-btn price poppins add-cart river-add-cart" data-toggle="modal" data-target="#exampleModal"><a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a></p>
+                        <p class="span-btn price poppins add-cart river-add-cart " data-toggle="modal" data-target="#exampleModal"><a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a></p>
 
                     </div>
                 </div>
