@@ -18,6 +18,7 @@ class HomeController extends Controller
         $saltWaterFishTalikas = $homeBlocks[1];
         $sweetWaterFishTalikas = $homeBlocks[2];
 
+
         $saltWaterFishCategory = Category::where('id', 4)->first();
         $sweetWaterFishCategory = Category::where('id', 5)->first();
 

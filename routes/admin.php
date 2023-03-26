@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\HomeBlockController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\BusinessSettingController;
 
 
 
@@ -27,9 +28,10 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 
     Route::get('product/create' , [ProductController::class, 'create'])->name('create.product');
     Route::get('product/edit/{id}' , [ProductController::class, 'edit'])->name('edit.product');
-    Route::get('products' , [ProductController::class, 'index'])->name('products');
+    Route::get('/product/list' , [ProductController::class, 'index'])->name('products');
     Route::post('product/store', [ProductController::class, 'store'])->name('store.product');
     Route::post('product/update/{id}', [ProductController::class, 'update'])->name('update.product');
+    Route::get('product/delete/{id}', [ProductController::class, 'delete'])->name('delete.product');
     Route::get('product/image/delete/{id}', [ProductController::class, 'deleteImages'])->name('product.image.delete');
 
     //home section
@@ -48,6 +50,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 
     Route::get('orders', [OrderController::class, 'orderIndex'])->name('Order.Index');
     Route::get('order/view/{id}', [OrderController::class, 'OrderView'])->name('Order.View');
+    Route::post('order/status/change/{id}', [OrderController::class, 'orderStatusChange'])->name('Order.Status.Change');
+
+    //shipping Charge
+
+    Route::get('shipping/charge/', [BusinessSettingController::class, 'shippingCharges'])->name('Shipping.Charges');
+    Route::post('update/shipping/charge/{id}', [BusinessSettingController::class, 'updateShippingCharge'])->name('Update.Shipping.Charge');
 
 
 });

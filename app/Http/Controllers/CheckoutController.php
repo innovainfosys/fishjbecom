@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Customer;
+use App\Models\ShippingCharge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Order;
@@ -15,22 +16,30 @@ class CheckoutController extends Controller
     {
         $userId = Cookie::get('__cart');
         $carts  =  Cart::with('product', 'variation')->where('user_id', $userId)->get();
+        $shippingCharge = ShippingCharge::where('id', 1)->first();
 
-        return view('frontend.pages.CheckOut', ['carts' => $carts]);
+        return view('frontend.pages.CheckOut', ['carts' => $carts, 'shippingCharge' => $shippingCharge]);
     }
 
     public function orderConfirm(Request $request)
     {
         $userId = Cookie::get('__cart');
         $carts = Cart::with('product', 'variation')->where('user_id', $userId)->get();
+        $shippingCharge = ShippingCharge::where('id', 1)->first();
 
         $customerExists = Customer::where('phone', $request->phone)->first();
 
         if ($customerExists)
         {
+            $subTotal = 0;
+            foreach ($carts as $cart)
+            {
+                $subTotal += $cart->variation->price * $cart->quantity;
+            }
+
             $order = new Order();
             $order->order_number = mt_rand(1000000000, 9999999999);
-            $order->subtotal = $request->subtotal;
+            $order->subtotal = $subTotal + $shippingCharge->amount;
             $order->customer_id = $customerExists->id;
             $order->shipping_address = $request->address;
             $order->save();

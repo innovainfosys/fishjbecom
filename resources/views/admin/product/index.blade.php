@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    {{'Attribute'}}
+    {{'Product List'}}
 @endsection
 
 @section('content')
@@ -29,7 +29,7 @@
                                     <td>
                                         @foreach($product->variations as $value)
 
-                                        <span> <b>Weight: {{$value->weight}}</b></span>
+                                        <span> <b>Weight:</b> {{$value->weight}}</span>
                                         <span> <b>price: </b></span>{{$value->price}}tk
                                         <span> <b>Instock :</b></span>{{$value->quantity}}
                                             <br>
@@ -37,7 +37,7 @@
                                     </td>
                                     <td>
                                         <a href="{{route('edit.product',$product->id)}}"  class="edit btn btn-info btn-sm"> <i class="ri  ri-edit-2-fill"> </i> </a>
-                                        <a href="javascript:void(0)"  data-id="{{$product->id}}" class="delete btn btn-danger btn-sm"> <i class="ri ri-delete-bin-6-line"> </i> </a>
+                                        <a href="{{route('delete.product',$product->id)}}" class="delete btn btn-danger btn-sm"> <i class="ri ri-delete-bin-6-line"> </i> </a>
                                     </td>
 
                                 </tr>

@@ -57,7 +57,10 @@ class CartController extends Controller
             $cartItem->variation_id = $variationId;
             $cartItem->quantity = 1;
             $cartItem->save();
-            return response()->json(['status' => 'Successfully added to card']);
+
+            $user_id = Cookie::get('__cart');;
+            $cartCount = Cart::where('user_id', $user_id)->get()->count();
+            return response()->json(['cartCount' => $cartCount, 'status' => 'Successfully added to card']);
         }
     }
 

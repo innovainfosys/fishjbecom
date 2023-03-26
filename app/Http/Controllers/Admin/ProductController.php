@@ -20,7 +20,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::with('categories', 'variations')->get();
+        $products = Product::with('categories', 'variations')->where('status', 'active')->get();
 
         return view('admin.product.index', ['products' => $products]);
     }
@@ -143,6 +143,15 @@ class ProductController extends Controller
         }
 
 
+
+        return redirect()->back()->with('success', 'Product Updated Successfully');
+    }
+
+    public function delete($id)
+    {
+        $product = Product::find($id);
+        $product->status = 'Inactive';
+        $product->update();
 
         return redirect()->back()->with('success', 'Product Updated Successfully');
     }

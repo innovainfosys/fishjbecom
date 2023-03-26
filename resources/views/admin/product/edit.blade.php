@@ -85,7 +85,7 @@
 
                             <div class="col-6">
                                 <label for="inputAddress" class="col-form-label">Featured Images</label>
-                                <input type="file" name="featured_image"  accept="images/*" class="form-control @error('featured_image') is-invalid @enderror" id="formFile" required>
+                                <input type="file" name="featured_image"  accept="images/*" class="form-control @error('featured_image') is-invalid @enderror" id="formFile">
                                 <div class="mt-2">
                                     <img src="{{asset('uploads/images/products/'.$product->featured_image)}}" style="height: 80px; width: 80px;" class="me-4 border">
                                 </div>

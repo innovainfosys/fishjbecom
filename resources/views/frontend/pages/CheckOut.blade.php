@@ -67,8 +67,13 @@
                         ?>
 
                     <div class="total-count-div row mt-5">
-                      <div class="col-md-10 item-titles"><p class="bold bangla-font">সর্বমোট মূল্যঃ </p></div>
+                      <div class="col-md-10 item-titles"><p class="bold bangla-font">মোট মূল্যঃ </p></div>
                       <div class="col-md-2 items-price"><p class="bold bangla-font">{{$subTotal}} <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p></div>
+                        <div class="col-md-10 item-titles mt-3 "><p class="bold bangla-font">শিপিং চার্জ </p></div>
+                        <div class="col-md-2 items-price mt-3"><p class="bold bangla-font"> {{$shippingCharge->amount}} <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i> </p></div>
+                        <div class="col-md-10 item-titles mt-3"><p class="bold bangla-font">সর্বমোট মূল্যঃ </p></div>
+                        <div class="col-md-2 items-price mt-3"><p class="bold bangla-font">{{$subTotal+$shippingCharge->amount}} <i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i></p></div>
+
                         <input type="hidden" value="{{$subTotal}}" name="subtotal">
                       <button href="#" class="order-submit bangla-font mt-5">অর্ডার কনফার্ম করুন</button>
                     </div>

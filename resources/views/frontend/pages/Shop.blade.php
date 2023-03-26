@@ -30,15 +30,8 @@
                                @endif
                                 </span>
                                     <span class="span-btn price bangla-font"><i class="fa-sharp fa-solid fa-bangladeshi-taka-sign"></i> {{$product->getMinPrice()}}</span>
-                                    <span
-                                        class="span-btn price poppins add-cart"
-                                        data-toggle="modal"
-                                        data-target="#exampleModal{{$product->id}}"
-                                    >
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
-                                    </span>
-
-                                    <div class="modal fade productModal" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <p class="span-btn price poppins add-cart river-add-cart " data-toggle="modal" data-target="#exampleModal{{$product->id}}"><a href="#"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a></p>
+                                    <div class="modal productModal" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -48,7 +41,6 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-
                                                     <div class="modal-div-wrapper">
                                                         <label >প্যাকেট নির্বাচন করুন</label>
                                                         <select name="variation_id" id="variation_id_{{$product->id}}" class="variationOptionSelector">
@@ -74,7 +66,6 @@
                 <div class="d-flex justify-content-center">
                     {!! $products->links() !!}
                 </div>
-
 
             </div>
     </section>
